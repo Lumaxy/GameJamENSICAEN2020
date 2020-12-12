@@ -554,7 +554,7 @@ let stories =
     {
         id: 13,
         title: "Confection de la \"Session 4\" / J'aurais du mettre quelque chose de plus fort",
-        context: "Mais ...",
+        context: "Nous aurions dû rajouter quelque chose de plus fort, mais ...",
         hour: "22h00",
         img: "",
         choices: [
@@ -573,8 +573,8 @@ let stories =
             },
             {
                 id: 15,
-                transition: "... genre quelque chose de <u>VRAIMENT</u> plus fort",
-                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter du soft dans la bouteille",
+                transition: "... genre <u>VRAIMENT</u> plus fort",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter très peu d'alcool dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -589,14 +589,14 @@ let stories =
     {
         id: 14,
         title: "Confection de la \"Session 4\" / J'aurais du metre que du soft",
-        context: "Mais ...",
+        context: "La prochaine fois, ...",
         hour: "22h00",
         img: "",
         choices: [
             {
                 id: 15,
-                transition: "... pas trop quand même",
-                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter du soft dans la bouteille",
+                transition: "... on mettra du soft aussi",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter beaucoup d'alcool dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -608,8 +608,8 @@ let stories =
             },
             {
                 id: 15,
-                transition: "... en fait, arrêter de boire directement serait plus simple",
-                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter beaucoup d'alcool dans la bouteille",
+                transition: "... on mettra moins d'alcool fort",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter de l'alcool fort dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
