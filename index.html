@@ -7,12 +7,10 @@
 
     <title>GameJam ENSICAEN 2020</title>
 </head>
-<body class="blue-grey valign-wrapper">
-    <div id="start" style="margin-left: 45%" class="btn">Commencer</div>
-
-
-    <div class="row">
-        <div class="col s12 m12">
+<body class="blue-grey">
+    <div id="gameContainer" class="valign-wrapper">
+        <div id="start" class="btn">Commencer</div>
+        <div class="row"><div class="col s12 m12">
 
             <div id="sceneCard" class="card blue-grey">
                 <div class="center"><img id="sceneImg" class="responsive-img" src="" alt=""></div>
@@ -26,13 +24,24 @@
                 </div>
             </div>
 
+        </div></div>
+
+    </div>
+
+    <div id="timeline" class="timelineContainer">
+        <div class="timeline">
+            <ul id="listOfEvents">
+            </ul>
         </div>
     </div>
+
     <script src="jquery.js" charset="utf-8"></script>
     <script src="materialize.min.js" charset="utf-8"></script>
     <script src="story.js" charset="utf-8"></script>
 
     <script type="text/javascript">
+    let events = new Array()
+
     class ChoiceTemplate {
 
         constructor(choice, nChoices) {
@@ -46,10 +55,23 @@
         }
     }
 
+    class TimepointTemplate {
+        constructor(scene) {
+            this.scene = scene
+        }
 
-
+        renderHTML(){
+            return `<li><div class="content">
+            <h3>${this.scene.hour}</h3>
+            <p>${this.scene.title}</p></div>
+            <div class="point"></div></li>`
+        }
+    }
     let currentScene = null
+    // $("#start").hide()
     $("#sceneCard").hide()
+    $("#timeline").hide()
+
     // $("#start").remove()
     // loadInitialScene()
 
@@ -74,6 +96,7 @@
     }
 
     function loadScene(scene){
+        events.push(scene)
         $("#sceneChoices").empty()
         $("#sceneContext").text(scene.context)
         $("#sceneHour").text(scene.hour)
@@ -86,12 +109,31 @@
 
     function nextScene(id){
         currentScene = stories.filter(scene => scene.id == id)[0];
-        $("#sceneCard").fadeOut(function(){
-            loadScene(currentScene)
-            $("#sceneCard").fadeIn(500)
-        })
+        if (currentScene.choices.length == 0){
+            console.log("Fin de la partie");
+            $("#sceneCard").fadeOut(function(){
+                loadTimeLine()
+                $("#gameContainer").hide()
+                $("#timeline").fadeIn()
+            })
+        }else{
+            $("#sceneCard").fadeOut(function(){
+                loadScene(currentScene)
+                $("#sceneCard").fadeIn(500)
+            })
+        }
+    }
+    function loadTimeLine(){
+        events.push(currentScene)
+        console.log("Loading timeline");
+        while (events.length > 0){
+            let scene = events.pop()
+            $("#listOfEvents").append(new TimepointTemplate(scene).renderHTML())
+            // console.log(scene.title);
+        }
+        // $("#listOfEvents").append()
     }
 
-</script>
+    </script>
 </body>
 </html>
