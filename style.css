@@ -7,6 +7,10 @@ body{
     margin: 0;
 }
 
+.btn {
+    height:auto !important;
+}
+
 #start{
     margin-left: 45%;
 }
@@ -20,9 +24,11 @@ body{
 
 }
 #sceneCard{
+    margin-left: 10%;
+    margin-right: 10%;
     flex-grow: 5;
-    max-width: 70%;
-    margin-left: 15%;
+    min-width: 70%;
+    max-width: 100%;
 }
 
 .bbb{
