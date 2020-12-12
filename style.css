@@ -1,0 +1,30 @@
+html {
+    height: 100%;
+    margin: 0;
+    border: green solid 5px;
+    /* border: cyan solid 5px; */
+
+}
+body{
+    height: 100%;
+    margin: 0;
+    border: cyan solid 5px;
+}
+#sceneImg{
+    max-height: 50vh;
+}
+
+.sceneCard{
+
+    /* background-image: url(200.gif);
+    background-attachment: fixed;
+    background-repeat: no-repeat; */
+    /* height:100%; */
+    border: purple solid 5px;
+    flex-grow: 5;
+}
+
+#mainWrapper{
+    min-height: 100%;
+    border: red solid 5px;
+}

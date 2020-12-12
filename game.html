@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>GameJam ENSICAEN 2020</title>
+</head>
+<body class="blue-grey valign-wrapper">
+    <div id="start" style="margin-left: 45%" class="btn">Commencer</div>
+
+
+    <div class="row">
+        <div id="cardContainer" class="col s12 m12">
+
+
+            <div class="card blue-grey sceneCard">
+                <div id="wrapperImg" class="center">
+                    <img id="sceneImg" class="responsive-img" src="" alt="">
+                </div>
+                <div class="card-content white-text center">
+                    <span id="sceneHour" class="card-title"></span>
+                    <p id="sceneContext"></p>
+                </div>
+                <div class="card-action">
+                    <div id="sceneChoices" class="row center">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="materialize.min.js" charset="utf-8"></script>
+    <script src="story.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    class SceneTemplate {
+        constructor(scene) {
+            this.scene = scene
+        }
+
+        renderHTML(){
+            let res = ""
+            this.scene.choices.forEach((choice) => {
+                res += new ChoiceTemplate(choice).renderHTML()
+            });
+
+            return `<div id="scene${this.scene.id}" class="card blue-grey sceneCard">
+            <div id="wrapperImg" class="center">
+            <img id="sceneImg" class="responsive-img" src="200.gif" alt="">
+            </div>
+            <div class="card-content white-text center">
+            <span id="sceneHour" class="card-title">${this.scene.hour}</span>
+            <p id="sceneContext"></p>
+            </div>
+            <div class="card-action">
+            <div id="sceneChoices" class="row center">
+            ${res}
+            </div>
+            </div>
+            </div>`
+        }
+
+    }
+
+    class ChoiceTemplate {
+
+        constructor(choice) {
+            this.id = choice.id
+            this.transition = choice.transition
+        }
+
+        renderHTML(){
+            return `<div class="btn col s4" onclick="nextScene(${this.id})" id="${this.id}">${this.transition}</div>`
+        }
+    }
+    let currentScene= null
+    $("#start").remove()
+    loadInitialScene()
+    // $("#cardContainer").append(new SceneTemplate(stories[0]).renderHTML())
+
+    function nextScene(id){
+        currentScene = stories.filter(scene => scene.id == id)[0];
+        $(".sceneCard").fadeOut(function(){
+            loadScene(currentScene)
+            $("#sceneImg").trigger("preLoadImage", "a.jpg")
+            $(".sceneCard").fadeIn(500)
+            console.log(currentScene);
+        })
+    }
+
+    $("#sceneImg").on("preLoadImage", (event, name) => {
+        console.log(name)
+        $("#sceneImg").attr("src", name)
+    })
+
+    function loadScene(scene){
+        $("#sceneChoices").empty()
+        $("#sceneContext").text(scene.context)
+        $("#sceneHour").text(scene.hour)
+        // $('img').hide();
+        // $("#mainCard").fadeIn()
+        // $("#sceneImg").attr("src", scene.img)
+
+        scene.choices.forEach((choice) => {
+            $("#sceneChoices").append(new ChoiceTemplate(choice).renderHTML())
+        });
+    }
+
+    function loadInitialScene(){
+        currentScene = stories.reduce(function(prev, curr) {
+            return prev.id < curr.id ? prev : curr;
+        });
+        loadScene(currentScene)
+        console.log(currentScene);
+    }
+
+    $(document).ready(function() {
+        $("#start").click(function(){
+            // let a = new Audio();
+            // a.src = "lvlup.wav"
+            // a.play()
+            // a.src = ""
+            $("#start").fadeOut(function(){
+                $("#startWrapper").hide()
+                loadInitialScene()
+            })
+        })
+    })
+</script>
+</body>
+</html>
