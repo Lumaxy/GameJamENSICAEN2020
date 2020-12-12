@@ -47,26 +47,28 @@
 
     class ChoiceTemplate {
 
-        constructor(choice, nChoices) {
+        constructor(choice, nChoices, index) {
             this.id = choice.id
             this.transition = choice.transition
             this.ncol = 12 / nChoices
+            this.index = index
         }
 
         renderHTML(){
-            return `<div class="btn col s${this.ncol}" onclick="nextScene(${this.id})" id="${this.id}">${this.transition}</div>`
+            return `<div class="btn col s${this.ncol}" onclick="nextScene(${this.id}, ${this.index})" id="${this.id}">${this.transition}</div>`
         }
     }
 
     class TimepointTemplate {
-        constructor(scene) {
+        constructor(scene, resolution) {
             this.scene = scene
+            this.resolution = resolution
         }
 
         renderHTML(){
             return `<li><div class="content">
             <h3>${this.scene.hour}</h3>
-            <p>${this.scene.title}</p></div>
+            <p>${this.resolution}</p></div>
             <div class="point"></div></li>`
         }
     }
@@ -99,21 +101,22 @@
     }
 
     function loadScene(scene){
-        events.push(scene)
         $("#sceneChoices").empty()
         $("#sceneContext").text(scene.context)
         $("#sceneHour").text(scene.hour)
         $("#sceneImg").attr("src", scene.img)
-        scene.choices.forEach((choice) => {
-            $("#sceneChoices").append(new ChoiceTemplate(choice, scene.choices.length).renderHTML())
+        scene.choices.forEach((choice, index) => {
+            $("#sceneChoices").append(new ChoiceTemplate(choice, scene.choices.length, index).renderHTML())
         });
         $("#sceneCard").fadeIn()
     }
 
-    function nextScene(id){
+    function nextScene(id, index){
+        let resolution = currentScene.choices[index].resolution
+        events.push([currentScene, resolution])
         currentScene = stories.filter(scene => scene.id == id)[0];
         if (currentScene.choices.length == 0){
-            console.log("Fin de la partie");
+            //Final Scene
             $("#sceneCard").fadeOut(function(){
                 loadTimeLine()
                 $("#gameContainer").hide()
@@ -127,14 +130,11 @@
         }
     }
     function loadTimeLine(){
-        events.push(currentScene)
-        console.log("Loading timeline");
+        events.push([currentScene, "Vous vous réveillez"])
         while (events.length > 0){
-            let scene = events.pop()
-            $("#listOfEvents").append(new TimepointTemplate(scene).renderHTML())
-            // console.log(scene.title);
+            let i = events.pop()
+            $("#listOfEvents").append(new TimepointTemplate(i[0], i[1]).renderHTML())
         }
-        // $("#listOfEvents").append()
     }
 
     </script>

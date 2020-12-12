@@ -458,14 +458,14 @@ let stories =
     {
         id: 11,
         title: "Attente du tram",
-        context: "Mais attends, qu'est-ce que j'ai fait en attendant le tram en sortant du before ...",
+        context: "Mais attends, qu'est-ce que j'ai fait en attendant le tram en sortant du before",
         hour: "22h29",
         img: "",
         choices: [
             {
                 id: 12,
                 transition: "J'ai copieusement bu dans la bouteille \"Session 4\"",
-                resolution: "Vous avez bu en attendant le tram",
+                resolution: "Vous avez bu \"Session 4\" en attendant le tram",
                 influences: {
                     health: 0,
                     love: 0,
@@ -513,7 +513,7 @@ let stories =
             {
                 id: 13,
                 transition: "n'était pas assez forte",
-                resolution: "Vous avez ajouté du soft dans la bouteille",
+                resolution: "Puis vous avez ajouté du soft à \"Session 4\"",
                 influences: {
                     health: 0,
                     love: 0,
@@ -539,7 +539,7 @@ let stories =
             {
                 id: 14,
                 transition: "était trop forte",
-                resolution: "Vous avez ajouté de l'alcool dans \"Session 4\"",
+                resolution: "Puis vous avez ajouté de l'alcool à \"Session 4\"",
                 influences: {
                     health: 0,
                     love: 0,
@@ -561,7 +561,7 @@ let stories =
             {
                 id: 15,
                 transition: "... sans en abuser",
-                resolution: "Vous avez ajouté un petit peu d'alcool dans \"Session 4\"",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter de l'alcool dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -573,8 +573,8 @@ let stories =
             },
             {
                 id: 15,
-                transition: "... genre quelque chose de VRAIMENT plus fort",
-                resolution: "Vous avez ajouté du soft dans \"Session 4\"",
+                transition: "... genre quelque chose de <u>VRAIMENT</u> plus fort",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter du soft dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -596,7 +596,7 @@ let stories =
             {
                 id: 15,
                 transition: "... pas trop quand même",
-                resolution: "Vous avez ajouté un peu de soft dans \"Session 4\"",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter du soft dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -609,7 +609,7 @@ let stories =
             {
                 id: 15,
                 transition: "... en fait, arrêter de boire directement serait plus simple",
-                resolution: "Vous avez ajouté beaucoup d'alcool dans \"Session 4\"",
+                resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter beaucoup d'alcool dans la bouteille",
                 influences: {
                     health: 0,
                     love: 0,
@@ -631,7 +631,7 @@ let stories =
             {
                 id: 16,
                 transition: "Je n'ai bu que du soft, je suis trop smart",
-                resolution: "Vous n'avez bu que du soft durant le Picolo",
+                resolution: "Vous n'avez bu que du soft durant la deuxième partie de Picolo",
                 influences: {
                     health: 0,
                     love: 0,
@@ -644,7 +644,7 @@ let stories =
             {
                 id: 16,
                 transition: "J'ai fait boire mes potes",
-                resolution: "Vous avez fait boire vos amis durant le Picolo",
+                resolution: "Vous avez fait boire vos amis durant la deuxième partie de Picolo",
                 influences: {
                     health: 0,
                     love: 0,
@@ -701,7 +701,7 @@ let stories =
             {
                 id: 18,
                 transition: "des potes",
-                resolution: "Vous avez amené des amis au before",
+                resolution: "Mais vous avez amené des amis",
                 influences: {
                     health: 0,
                     love: 0,
@@ -714,7 +714,7 @@ let stories =
             {
                 id: 19,
                 transition: "l'apéro",
-                resolution: "Vous avez apporté l'apéro au before",
+                resolution: "Mais vous avez apporté l'apéro",
                 influences: {
                     health: 0,
                     love: 0,
@@ -727,7 +727,7 @@ let stories =
             {
                 id: 20,
                 transition: "mon date",
-                resolution: "Vous êtes venu avec votre date au before",
+                resolution: "Mais vous êtes venu avec votre date",
                 influences: {
                     health: 0,
                     love: 0,
