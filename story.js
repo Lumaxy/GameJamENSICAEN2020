@@ -1,767 +1,999 @@
+let introductionText = ``
+
 let stories =
 [
     {
         id: 0,
         title: "Situation initiale",
-        context: "Vous vous retrouvez dans une pièce dont le plafond est blanc. Comment êtes-vous arrivé là ?",
-        hour: "6h37",
-        img: "a.jpg",
+        context: "Je me retrouve dans une pièce dont le plafond est blanc. Comment suis-je arrivé là ?",
+        hour: "3h48",
+        img: "",
         choices: [
             {
                 id: 1,
-                transition: "En tram",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                transition: "En Noctibus",
+                resolution: "Vous avez pris le noctibus pour rentrer",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 1,
                 transition: "A pied",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez marché pour rentrer",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 1,
         title: "Bar qui ferme",
-        context: "J'étais à ce bar avant. Il fermait, heureusement j'ai eu le temps",
-        hour: "3h02",
-        img: "test2.jpg",
+        context: "Je me souviens de ce bar. Il fermait mais heureusement j'ai eu le temps...",
+        hour: "2h55",
+        img: "",
         choices: [
             {
                 id: 2,
                 transition: "De trinquer avec mes potes",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                resolution: "Vous avez trinqué avec vos amis juste avant que le bar ne ferme",
+                influences: {
+                    health: -2,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: -1,
+                    reputation: 0
+                }
+            },{
                 id: 2,
                 transition: "D'embrasser mon date",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
-            },
-            {
+                resolution: "Vous avez embrassé votre date juste avant que le bar ne ferme",
+                influences: {
+                    health: -1,
+                    love: +2,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 2,
                 transition: "D'aller au toilette",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez été au toilette juste avant que le bar ne ferme",
+                influences: {
+                    health: +1,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 2,
-        title: "Nouveau bar",
-        context: "Ce nouveau bar était bien car",
-        hour: "18h59",
+        title: "Nouveau bar (deuxième)",
+        context: "On a bien fait de changer de bar car",
+        hour: "2h06",
         img: "",
         choices: [
             {
                 id: 3,
-                transition: "Il était moins cher que le précédent",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                transition: "Celui-ci était moins cher que le précédent",
+                resolution: "Vous avez décidé de changer de bar pour un bar moins cher",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: -2,
+                    studies: 0,
+                    money: +2,
+                    reputation: 0
+                }
+            },{
                 id: 3,
-                transition: "Il y avait une meilleur ambiance qu'au précédent",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Il y avait une meilleur ambiance dans celui-ci",
+                resolution: "Vous avez décidé de changer de bar pour un bar avec plus d'ambiance",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: +2,
+                    studies: 0,
+                    money: -2,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 3,
-        title: "Bar précédent",
-        context: "Ceci dit j'ai passé un bon moment dans le bar d'avant en",
-        hour: "18h59",
+        title: "Premier bar",
+        context: "Mais qu'est ce que j'ai fait dans le bar d'avant ?",
+        hour: "1h31",
         img: "",
         choices: [
             {
                 id: 4,
-                transition: "Jouant au fléchettes avec mes potes",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                transition: "J'ai joué aux fléchettes avec mes potes",
+                resolution: "Vous avez joué aux fléchettes",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: +2,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 5,
-                transition: "Draguant mon date",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
-            },
-            {
+                transition: "J'ai dragué mon date",
+                resolution: "Vous avez dragué votre date",
+                influences: {
+                    health: 0,
+                    love: +2,
+                    friends: -2,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 6,
-                transition: "Buvant ce mètre de shots",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'ai payé un mètre de shots",
+                resolution: "Vous avez payé la tournée de shots",
+                influences: {
+                    health: -2,
+                    love: 0,
+                    friends: +4,
+                    studies: 0,
+                    money: -4,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 4,
-        title: "Bar précédent / fléchettes",
-        context: "Et si je me souviens bien",
-        hour: "18h59",
+        title: "Premier bar bis / fléchette",
+        context: "Et si je me souviens bien, avant cette partie de féchette",
+        hour: "00h48",
         img: "",
         choices: [
             {
                 id: 7,
-                transition: "J'ai beaucoup joué aux fléchettes à ce bar",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "J'avais déjà joué aux fléchettes",
+                resolution: "Vous avez fait une partie de fléchettes",
+                influences: {
+                    health: -2,
+                    love: 0,
+                    friends: +2,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 7,
-                transition: "Je dragait mon date juste avant",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Je draguais mon date",
+                resolution: "Vous avez dragué votre date",
+                influences: {
+                    health: 0,
+                    love: +2,
+                    friends: -2,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 7,
                 transition: "Je venais de boire un mètre de shots",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez bu un mètre de shots",
+                influences: {
+                    health: -4,
+                    love: 0,
+                    friends: +4,
+                    studies: 0,
+                    money: -2,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 5,
-        title: "Bar précédent / drague",
+        title: "Premier bar / drague",
         context: "Et si je me souviens bien",
-        hour: "18h59",
+        hour: "00h48",
         img: "",
         choices: [
             {
                 id: 7,
                 transition: "Je venais de gagner aux fléchettes",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                resolution: "Vous avez gagné une partie de flechettes",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: +2,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 7,
                 transition: "Je discutais déjà avec depuis longtemps",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
-            },
-            {
+                resolution: "Vous avez discuté avec votre date",
+                influences: {
+                    health: 0,
+                    love: +1,
+                    friends: -1,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 7,
                 transition: "Je venais de boire un mètre de shots",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez bu un mètre de shots",
+                influences: {
+                    health: -4,
+                    love: 0,
+                    friends: +4,
+                    studies: 0,
+                    money: -2,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 6,
-        title: "Bar précédent / shots",
+        title: "Premier bar / shots",
         context: "Et si je me souviens bien",
-        hour: "18h59",
+        hour: "00h48",
         img: "",
         choices: [
             {
                 id: 7,
                 transition: "Je venais de gagner aux fléchettes",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
-            },
-            {
+                resolution: "Vous avez gagné aux fléchettes",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 7,
                 transition: "J'avais discuté avec mon date avant",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
-            },
-            {
+                resolution: "Vous avez discuté avec votre date",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },{
                 id: 7,
                 transition: "C'était déjà mon deuxième mètre dans ce bar",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez bu un mètre de shots",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 7,
-        title: "Bar mieux car",
-        context: "L'avantage de ce bar",
-        hour: "18h59",
+        title: "Choix du premier bar",
+        context: "L'avantage du bar où nous étions",
+        hour: "23h37",
         img: "",
         choices: [
             {
                 id: 8,
                 transition: "C'est que la musique plait à tout le monde",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Vous avez choisi un bar avec de la bonne musique",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 9,
                 transition: "Qu'il était plus calme, on s'entendait parler",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez choisi un bar un peu calme, histoire de discuter",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 8,
-        title: "Bar mieux car / plait à tout le monde",
+        title: "Choix du premier bar car / plait à tout le monde",
         context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais tout le monde n'aime pas la musique qu'ils mettent. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
-        hour: "18h59",
+        hour: "23h22",
         img: "",
         choices: [
             {
                 id: 10,
                 transition: "J'ai aidé à la finir",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Vous avez fini seul \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 10,
                 transition: "Je n'ai pas aidé à la finir",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez regardé les autres finir \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 9,
-        title: "Bar mieux car / plus calme",
+        title: "Choix du premier bar car / plus calme",
         context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais il avait beaucoup de monde. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
-        hour: "18h59",
+        hour: "23h22",
         img: "",
         choices: [
             {
                 id: 10,
                 transition: "J'ai aidé à la finir",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Vous avez fini seul \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 10,
                 transition: "Je n'ai pas aidé à la finir",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez regardé les autres finir \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 10,
         title: "Tram de l'ambiance",
-        context: "D'ailleurs c'était un beau tram de l'ambiance, il s'est arrété car ",
-        hour: "18h59",
+        context: "Je me souviens du tram à l'arrêt, mais j'ai du mal à me rappeler pourquoi",
+        hour: "23h04",
         img: "",
         choices: [
             {
                 id: 11,
                 transition: "Un autre groupe chantait trop fort",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Le tram s'est arrêté car un autre groupe chantait trop fort",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 11,
                 transition: "On s'est embrouillé avec une autre école",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous vous êtes battu avec un étudiant d'une autre école",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 11,
                 transition: "\"ON EST EN PHARMA, ON EST EN PHARMA\"",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "\"ON EST EN PHARMA, ON EST EN PHARMA\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 11,
-        title: "Arrête de tram",
+        title: "Attente du tram",
         context: "Mais attends, qu'est-ce que j'ai fait en attendant le tram en sortant du before ...",
-        hour: "18h59",
+        hour: "22h29",
         img: "",
         choices: [
             {
                 id: 12,
-                transition: "J'ai copieusement bu dans la bouteille de \"Session 4\" ",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "J'ai copieusement bu dans la bouteille \"Session 4\"",
+                resolution: "Vous avez bu en attendant le tram",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 12,
                 transition: "J'ai payé mon ticket de tram",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez pris un ticket de tram",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: -2,
+                    reputation: 0
+                }
             },
             {
                 id: 12,
                 transition: "J'ai dragué mon date",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez dragué votre date",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 12,
         title: "Confection de la \"Session 4\"",
-        context: "D'ailleurs, dans cette bouteille de \"Session 4\", ",
-        hour: "18h59",
+        context: "D'ailleurs, la bouteille \"Session 4\", ",
+        hour: "22h00",
         img: "",
         choices: [
             {
                 id: 13,
-                transition: "J'aurais du mettre quelque chose de plus fort",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "n'était pas assez forte",
+                resolution: "Vous avez ajouté du soft dans la bouteille",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 15,
-                transition: "Elle était parfaitement dosée",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "était parfaitement dosée",
+                resolution: "Vous avez confectionné une \"Session 4\" impéccable",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 14,
-                transition: "J'aurais du mettre que du soft",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "était trop forte",
+                resolution: "Vous avez ajouté de l'alcool dans \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 13,
-        title: "Confection de la \"Session 4\" / quelque chose de plus fort",
+        title: "Confection de la \"Session 4\" / J'aurais du mettre quelque chose de plus fort",
         context: "Mais ...",
-        hour: "18h59",
+        hour: "22h00",
         img: "",
         choices: [
             {
                 id: 15,
                 transition: "... sans en abuser",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Vous avez ajouté un petit peu d'alcool dans \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 15,
                 transition: "... genre quelque chose de VRAIMENT plus fort",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez ajouté du soft dans \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 14,
-        title: "Confection de la \"Session 4\" / que du soft",
+        title: "Confection de la \"Session 4\" / J'aurais du metre que du soft",
         context: "Mais ...",
-        hour: "18h59",
+        hour: "22h00",
         img: "",
         choices: [
             {
                 id: 15,
                 transition: "... pas trop quand même",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                resolution: "Vous avez ajouté un peu de soft dans \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 15,
-                transition: "... en fait, arrêté de boire directement serait plus simple",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "... en fait, arrêter de boire directement serait plus simple",
+                resolution: "Vous avez ajouté beaucoup d'alcool dans \"Session 4\"",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 15,
         title: "Jeu à boire / j'ai fait",
-        context: "Pendant le jeu à boire avant ça, j'ai",
-        hour: "18h59",
+        context: "Durant le before, je me souviens d'avoir fait un Picolo",
+        hour: "21h17",
         img: "",
         choices: [
             {
                 id: 16,
-                transition: "Bu que du soft",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "Je n'ai bu que du soft, je suis trop smart",
+                resolution: "Vous n'avez bu que du soft durant le Picolo",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 16,
-                transition: "Fait boire mes potes",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'ai fait boire mes potes",
+                resolution: "Vous avez fait boire vos amis durant le Picolo",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 16,
         title: "Jeu à boire / j'ai subit",
-        context: "Même si ...",
-        hour: "18h59",
+        context: "Par contre, à la première partie",
+        hour: "21h03",
         img: "",
         choices: [
             {
                 id: 17,
-                transition: "... j'ai été focus par les autres",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "Je me suis fait focus par les autres",
+                resolution: "Vous avez été focus par vos amis durant la première partie de Picolo",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 17,
-                transition: "... je n'ai pas participé",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Je n'ai pas participé",
+                resolution: "Vous avez regardé vos amis jouer à Picolo",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 17,
         title: "Arrivé before",
-        context: "Même en ayant amené ...",
-        hour: "18h59",
+        context: "Même en ayant amené ... au before",
+        hour: "20h26",
         img: "",
         choices: [
             {
                 id: 18,
-                transition: "... des potes ...",
-                majors: {
-                    sante: -2,
-                    amour: 0
-                },
-                minors: {},
+                transition: "des potes",
+                resolution: "Vous avez amené des amis au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 19,
-                transition: "... l'apéro ...",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "l'apéro",
+                resolution: "Vous avez apporté l'apéro au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 20,
-                transition: "... mon date ...",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "mon date",
+                resolution: "Vous êtes venu avec votre date au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 18,
         title: "Arrivé before / j'ai amené des potes",
-        context: "... On m'a quand même reproché de ne pas avoir amené",
-        hour: "18h59",
+        context: "On m'a quand même reproché de ne pas avoir amené",
+        hour: "20h26",
         img: "",
         choices: [
             {
                 id: 21,
-                transition: "... l'apéro",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "l'apéro",
+                resolution: "Vous avez oublié l'apéro en vous rendant au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 21,
-                transition: "... mon date",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "mon date mais il vient par ses propres moyens",
+                resolution: "Vous n'êtes pas venu au before avec votre date, qui viendra plus tard dans la soirée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 19,
         title: "Arrivé before / j'ai amené l'apéro",
-        context: "... On m'a quand même reproché de ne pas avoir amené",
-        hour: "18h59",
+        context: "On m'a quand même reproché de ne pas avoir amené",
+        hour: "20h26",
         img: "",
         choices: [
             {
                 id: 21,
-                transition: "... des potes qui habitent plus loin",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "des potes qui habitent plus loin",
+                resolution: "Vous n'avez pris personne dans votre voiture pour vous rendre au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 21,
-                transition: "... mon date",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "mon date mais il vient par ses propres moyens",
+                resolution: "Vous n'êtes pas venu au before avec votre date, qui viendra plus tard dans la soirée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 20,
         title: "Arrivé before / j'ai amené mon date",
-        context: "... On m'a quand même reproché de ne pas avoir amené",
-        hour: "18h59",
+        context: "On m'a quand même reproché de ne pas avoir amené",
+        hour: "20h26",
         img: "",
         choices: [
             {
                 id: 21,
-                transition: "... l'apéro",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "l'apéro",
+                resolution: "Vous avez oublié l'apéro en vous rendant au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 21,
-                transition: "... des potes qui habitent plus loin",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "des potes qui habitent plus loin",
+                resolution: "Vous n'avez pris personne dans votre voiture pour vous rendre au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 21,
-        title: "Sortie de ?",
-        context: "Ceci dit j'aurais pu avoir le temps de le faire si j'étais parti plus tôt ...",
-        hour: "18h59",
+        title: "Sortie de boulot/pote/home",
+        context: "Ceci dit j'aurais eu le temps de le faire si j'étais parti plus tôt",
+        hour: "19h00",
         img: "",
         choices: [
             {
                 id: 30,
-                transition: "... de mon temps partiel",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "de mon travail à temps partiel",
+                resolution: "Vous avez travaillé tout l'après-midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 22,
-                transition: "... de chez mon pote",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "de chez mon pote",
+                resolution: "Vous étiez chez votre ami avant d'aller au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 26,
-                transition: "... de chez moi",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "de chez moi",
+                resolution: "Vous étiez chez vous avant de vous rendre au before",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 22,
         title: "J'étais chez mon pote",
-        context: "Mais j'ai passé un bon moment en ",
-        hour: "18h59",
+        context: "Mais j'ai passé un bon moment en",
+        hour: "16h35",
         img: "",
         choices: [
             {
                 id: 23,
                 transition: "Faisant des ranked avec lui",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez joué aux jeux vidéos chez votre ami en fin d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 23,
-                transition: "Discutant avec mon date par sms",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Répondant au sms de ce matin",
+                resolution: "Vous avez répondu à votre sms de ce matin, quand vous étiez chez votre ami en fin d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 23,
         title: "Avant d'être chez mon pote",
-        context: "D'ailleurs",
-        hour: "18h59",
+        context: "En début d'après midi, j'étais",
+        hour: "16h35",
         img: "",
         choices: [
             {
                 id: 24,
-                transition: "J'y ai passé tout l'aprèm",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "déjà chez mon ami",
+                resolution: "Vous êtes resté chez votre ami",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 25,
-                transition: "J'étais chez moi avant",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "chez moi",
+                resolution: "Vous êtes allé chez votre ami pour la fin d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 24,
         title: "Avant d'être chez mon pote / j'étais chez mon pote",
-        context: "J'y suis arrivé en début d'aprèm",
-        hour: "18h59",
+        context: "Et ",
+        hour: "14h22",
         img: "",
         choices: [
             {
                 id: 30,
-                transition: "Et on n'a pas laché le clavier",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "On n'a pas laché le clavier",
+                resolution: "Vous avez joué aux jeux vidéos avec votre ami en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 30,
-                transition: "Mais je surtout répondu à mes messages en arrivant",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'ai surtout répondu à mes messages",
+                resolution: "Vous avez répondu à vos messages, chez votre ami en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -769,26 +1001,34 @@ let stories =
         id: 25,
         title: "Avant d'être chez mon pote / j'étais chez moi",
         context: "En fait, ",
-        hour: "18h59",
+        hour: "14h22",
         img: "",
         choices: [
             {
                 id: 30,
                 transition: "J'ai quand même pas mal révisé en début d'après-midi",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez révisé chez vous en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 30,
-                transition: "J'ai longtemps discuté par message avant de venir",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'ai répondu au message de ce matin",
+                resolution: "Vous avez répondu à vos messages, chez vous, en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -796,80 +1036,104 @@ let stories =
         id: 26,
         title: "J'étais chez moi",
         context: "Il fallait vraiment que",
-        hour: "18h59",
+        hour: "16h35",
         img: "",
         choices: [
             {
                 id: 27,
                 transition: "Je révise pour les DS à venir",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez révisé vos examens en fin d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 27,
-                transition: "J'envoie ce sms",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'envoie un dernier sms pour finir la discussion de ce matin",
+                resolution: "Vous avez envoyé un dernier sms pour finir la discussion de ce matin",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 27,
         title: "Avant d'être chez moi",
-        context: "En y repensant, ",
-        hour: "18h59",
+        context: "En début d'après midi, j'étais",
+        hour: "16h35",
         img: "",
         choices: [
             {
                 id: 28,
-                transition: "J'ai passé tout l'aprèm chez moi",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "déjà chez moi",
+                resolution: "Vous êtes resté chez vous",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 29,
-                transition: "J'étais passé chez mon pote en début d'après-midi",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "chez votre ami",
+                resolution: "Vous êtes allé chez votre ami pour la fin d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 28,
         title: "Avant d'être chez moi / j'étais chez moi",
-        context: "Il y a des priorité dans la vie ... ",
-        hour: "18h59",
+        context: "Il y a des priorité dans la vie,",
+        hour: "14h22",
         img: "",
         choices: [
             {
                 id: 30,
                 transition: "Et en ce moment c'est les révisions",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez révisé chez vous en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 30,
                 transition: "Et je devais répondre à ces messages",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez répondu à vos messages, chez vous en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -877,26 +1141,34 @@ let stories =
         id: 29,
         title: "Avant d'être chez moi / j'étais chez mon pote",
         context: "Là-bas ",
-        hour: "18h59",
+        hour: "14h22",
         img: "",
         choices: [
             {
                 id: 30,
-                transition: "On s'est bien marré sur fallguys",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "On s'est bien marré sur Fallguys",
+                resolution: "Vous avez joué aux jeux vidéos chez votre ami en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 30,
-                transition: "J'ai surtout répondu au sms de ce matin",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "J'ai répondu au message de ce matin",
+                resolution: "Vous avez répondu à vos messages, chez votre ami, en début d'après midi",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -904,134 +1176,169 @@ let stories =
         id: 30,
         title: "D'où viennent les messages ?",
         context: "C'est vrai qu'aujourd'hui, cette discussion par SMS avec",
-        hour: "18h59",
+        hour: "11h59",
         img: "",
         choices: [
             {
                 id: 31,
                 transition: "Mon date était très plaisante",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez commencé à discuter avec votre date en fin de matinée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 31,
                 transition: "La dame des APL était nécessaire",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez commencé à discuter avec la dame des APL en fin de matinée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 31,
                 transition: "Mon pote à Paris était sympa",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez commencé à discuter avec votre ami de Paris en fin de matinée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 31,
         title: "La pause le matin",
-        context: "... N'empêche que maintenant, je suis bien content que pendant la pause de ce matin, j'ai",
-        hour: "18h59",
+        context: "Je suis bien content d'avoir ... pendant la pause de ce matin",
+        hour: "10h07",
         img: "",
         choices: [
             {
                 id: 32,
-                transition: "Finit mes devoirs",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Fini mes devoirs",
+                resolution: "Vous avez fini vos devoir durant la pause du matin",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 32,
-                transition: "Prit un truc à manger",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Pris un truc à manger",
+                resolution: "Vous avez mangé un encas durant la pause du matin",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 32,
-        title: "La tenue choisit",
+        title: "La tenue choisi",
         context: "Peut-être que ce matin, je n'aurais pas du m'habiller",
-        hour: "18h59",
+        hour: "07h31",
         img: "",
         choices: [
             {
                 id: 33,
-                transition: "Avec cette vieille veste",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Avec cette vieille veste confortable",
+                resolution: "Vous avez enfilé une tenue confortable pour la journée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 33,
                 transition: "Avec le sweat de l'ENSI",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                resolution: "Vous avez enfilé votre sweat de l'ENSI pour la journée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             },
             {
                 id: 33,
-                transition: "Avec ces fringues très stylé mais peu confortable",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+                transition: "Avec ces affaires stylées mais peu confortables",
+                resolution: "Vous avez enfilé vos plus beaux vêtements pour la journée",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
     {
         id: 33,
         title: "Le petit-dej",
-        context: "Et ",
-        hour: "18h59",
+        context: "Ce matin, j'ai",
+        hour: "7h12",
         img: "",
-        choices: [
-            {
-                id: 34,
-                transition: "J'ai bien fait de prendre un petit dej consistant en tout cas",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
-            },
-            {
-                id: 34,
-                transition: "J'aurais du prendre un truc à manger",
-                majors: {
-                    sante: +2,
-                    amour: 0
-                },
-                minors: {}
+        choices: [{
+            id: 34,
+            transition: "Bien fait de prendre un petit dej consistant",
+            resolution: "Vous avez pris un bon petit déjeuner consistant et équilibré après vous être levé",
+            influences: {
+                health: 0,
+                love: 0,
+                friends: 0,
+                studies: 0,
+                money: 0,
+                reputation: 0
             }
-        ],
-    },
-    {
+        },{
+            id: 34,
+            transition: "Pas pris de truc à manger",
+            resolution: "Vous n'avez pas mangé de petit déjeuner ce matin",
+            influences: {
+                health: 0,
+                love: 0,
+                friends: 0,
+                studies: 0,
+                money: 0,
+                reputation: 0
+            }
+        }],
+    },{
         id: 34,
         title: "reveil",
         context: "Je me lève",
-        hour: "9h00",
+        hour: "7h01",
         img: "",
         choices: [],
-    }
-]
+    }]
