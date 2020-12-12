@@ -694,7 +694,7 @@ let stories =
     {
         id: 17,
         title: "Arrivé before",
-        context: "Même en ayant amené ... au before",
+        context: "Lorsque je suis arrivé au before, même en ayant amené",
         hour: "20h26",
         img: "",
         choices: [
