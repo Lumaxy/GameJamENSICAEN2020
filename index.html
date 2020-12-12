@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>GameJam ENSICAEN 2020</title>
+</head>
+<body class="blue-grey valign-wrapper">
+    <div id="start" style="margin-left: 45%" class="btn">Commencer</div>
+
+
+    <div class="row">
+        <div class="col s12 m12">
+
+            <div id="sceneCard" class="card blue-grey">
+                <div class="center"><img id="sceneImg" class="responsive-img" src="" alt=""></div>
+                <div class="card-content white-text center">
+                    <span id="sceneHour" class="card-title"></span>
+                    <p id="sceneContext" style="text-align: justify;"></p>
+                </div>
+                <div class="card-action">
+                    <div id="sceneChoices" class="row">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="jquery.js" charset="utf-8"></script>
+    <script src="materialize.min.js" charset="utf-8"></script>
+    <script src="story.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    class ChoiceTemplate {
+
+        constructor(choice, nChoices) {
+            this.id = choice.id
+            this.transition = choice.transition
+            this.ncol = 12 / nChoices
+        }
+
+        renderHTML(){
+            return `<div class="btn col s${this.ncol}" onclick="nextScene(${this.id})" id="${this.id}">${this.transition}</div>`
+        }
+    }
+
+
+
+    let currentScene = null
+    $("#sceneCard").hide()
+    // $("#start").remove()
+    // loadInitialScene()
+
+    $(document).ready(function() {
+        $("#start").click(function(){
+            let a = new Audio();
+            a.src = "oneUp.wav"
+            a.play()
+            $("#start").fadeOut(function(){
+                $("#start").remove()
+                loadInitialScene()
+            })
+        })
+
+    })
+
+    function loadInitialScene(){
+        currentScene = stories.reduce(function(prev, curr) {
+            return prev.id < curr.id ? prev : curr;
+        });
+        loadScene(currentScene)
+    }
+
+    function loadScene(scene){
+        $("#sceneChoices").empty()
+        $("#sceneContext").text(scene.context)
+        $("#sceneHour").text(scene.hour)
+        $("#sceneImg").attr("src", scene.img)
+        scene.choices.forEach((choice) => {
+            $("#sceneChoices").append(new ChoiceTemplate(choice, scene.choices.length).renderHTML())
+        });
+        $("#sceneCard").fadeIn()
+    }
+
+    function nextScene(id){
+        currentScene = stories.filter(scene => scene.id == id)[0];
+        $("#sceneCard").fadeOut(function(){
+            loadScene(currentScene)
+            $("#sceneCard").fadeIn(500)
+        })
+    }
+
+</script>
+</body>
+</html>
