@@ -78,14 +78,14 @@
     <script src="story_ends.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-    $("#startContainer").hide()
-    $("#gameContainer").remove()
+    // $("#startContainer").hide()
+    // $("#gameContainer").remove()
     $("#sceneCard").hide()
     $("#timeline").hide()
 
-    // $("#recap").hide()
+    $("#recap").hide()
     $("#finalCard").hide()
-    // $("#gameContainerEnd").hide()
+    $("#gameContainerEnd").hide()
 
     // $("#start").remove()
     // loadInitialScene()
@@ -94,16 +94,15 @@
     let events = new Array()
     let nSMS = 0
     let influences = {
-        health: -15,
-        love: 15,
-        friends: 10,
-        studies: 5,
-        money: -14,
-        reputation: -4
+        health: 0,
+        love: 0,
+        friends: 0,
+        studies: 0,
+        money: 0,
+        reputation: 0
     }
     let tookTicket = true
 
-    revealEnd()
 
     class ChoiceTemplate {
 
@@ -266,7 +265,7 @@
                 $("#sceneEndImg").attr("src", "resources/imgs/hospital.webp")
                 $("#finalContext").text("Vous êtes à l'hôpital")
             }else if (influences.love >= 15){
-                $("#sceneEndImg").attr("src", "resources/imgs/love.jpg")
+                $("#sceneEndImg").attr("src", "resources/imgs/love_gif.gif")
                 $("#finalContext").text("Vous êtes chez votre date")
             }else if (influences.friends >= 18){
                 $("#sceneEndImg").attr("src", "resources/imgs/friends.jpg")
@@ -305,6 +304,7 @@
 
     function revealDetails(){
         $("#finalCard").fadeOut(()=>{
+            loadEndScene()
             $("#recap").fadeIn()
         })
     }
