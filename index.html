@@ -97,7 +97,7 @@
         reputation: 0
     }
     let tookTicket = true
-    let nAchievements = 1
+    let nAchievements = 2
 
     class ChoiceTemplate {
 
@@ -133,6 +133,7 @@
         $("#intro").empty()
         $("#intro").text(introductionText.introduction)
         $("#start").text(introductionText.buttonText)
+        console.log(document.cookie.split(";"));
         let nAch = document.cookie == "" ? 0 : document.cookie.split(";").length
         $("#achievements").text(`${nAch} / ${nAchievements} succès débloqué.`)
         $("#start").click(function(){
@@ -184,6 +185,9 @@
                 loadTimeLine()
                 $("#gameContainer").hide()
                 $("#timeline").fadeIn(() => {
+                    if (influences.reputation <= -4){
+                        achieve("Cancre de l'ENSICAEN")
+                    }
                     achieve("finir une partie")
                 })
             })
@@ -310,7 +314,7 @@
     function achieve(achievementName){
         achievements = document.cookie.split(";")
         if (!achievements.includes(achievementName + "=true")){
-            document.cookie = achievements.join(";") + achievementName + "=true;"
+            document.cookie = achievementName + "=true"
             M.toast({html: `Succès : ${achievementName} !`})
         }
     }
