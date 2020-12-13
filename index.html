@@ -52,14 +52,7 @@
 
         <div id="recap" class="">
             <h3 class="center white-text">Détails de votre soirée</h3>
-            <div id="listSumup" class="center">
-                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-                <p>fskjfhsihgjoidrjgoi, pendant vous ne savez pas où vous êtes. Vous essayez de vous remévous venez de passer une super soirée. Cemorer la journée pour en déduire où vous êtes arrivé.</p>
-                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-                <p>Vous êtes étudiantr une super soirée. Cependant vous ne sav  , vous venez de passeez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-            </div>
+            <div id="listSumup" class="center"></div>
 
             <div id="againBut" class="but center" onclick="location.reload();">
                 Recommencer une partie !
@@ -82,6 +75,7 @@
     <script src="jquery.js" charset="utf-8"></script>
     <script src="materialize.min.js" charset="utf-8"></script>
     <script src="story.js" charset="utf-8"></script>
+    <script src="story_ends.js" charset="utf-8"></script>
 
     <script type="text/javascript">
     $("#startContainer").hide()
@@ -89,8 +83,8 @@
     $("#sceneCard").hide()
     $("#timeline").hide()
 
-    $("#recap").hide()
-    // $("#finalCard").hide()
+    // $("#recap").hide()
+    $("#finalCard").hide()
     // $("#gameContainerEnd").hide()
 
     // $("#start").remove()
@@ -100,14 +94,15 @@
     let events = new Array()
     let nSMS = 0
     let influences = {
-        health: 0,
-        love: 0,
-        friends: 0,
-        studies: 0,
-        money: 0,
-        reputation: 0
+        health: -15,
+        love: 15,
+        friends: 10,
+        studies: 5,
+        money: -14,
+        reputation: -4
     }
     let tookTicket = true
+
     revealEnd()
 
     class ChoiceTemplate {
@@ -286,8 +281,26 @@
     }
 
     function loadEndScene(){
-        // $("#listSumup").append("<p> .... Vous êtes ici</p>")
-
+        $("#listSumup").empty()
+        stories_ends.forEach(influence => {
+            let pos = influence.possibilities
+            let done = false
+            pos.forEach((possibility) => {
+                if (possibility.minValue != null && possibility.maxValue != null){
+                    if (influences[influence.influence] <= possibility.maxValue && influences[influence.influence] >= possibility.minValue){
+                        $("#listSumup").append(`<p>${possibility.resolution}</p>`)
+                    }
+                }else if (possibility.minValue == null && possibility.maxValue != null){
+                    if (influences[influence.influence] <= possibility.maxValue ){
+                        $("#listSumup").append(`<p>${possibility.resolution}</p>`)
+                    }
+                }else if (possibility.minValue != null && possibility.maxValue == null){
+                    if (influences[influence.influence] >= possibility.minValue ){
+                        $("#listSumup").append(`<p>${possibility.resolution}</p>`)
+                    }
+                }
+            });
+        })
     }
 
     function revealDetails(){
