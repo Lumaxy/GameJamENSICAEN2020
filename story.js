@@ -1,4 +1,11 @@
-let introductionText = ``
+let introductionText = 
+    {
+        title: "Where the story <strike>begin</strike> end",
+        project: "Gamesicaen - Team Ctrl+C Ctrl+V = Jeu",
+        theme: "Inversion",
+        introduction: "Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour savoir où vous êtes arrivé.",
+        buttonText: "Remonter le fil de la journée"
+    }
 
 let stories =
 [
