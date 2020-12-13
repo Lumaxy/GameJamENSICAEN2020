@@ -1096,7 +1096,7 @@ let stories =
             },
             {
                 id: 29,
-                transition: "chez votre ami",
+                transition: "chez mon ami",
                 resolution: "Vous êtes allé chez votre ami pour la fin d'après midi",
                 influences: {
                     health: 0,
@@ -1376,8 +1376,170 @@ let stories =
                 }
             },
             {
-                id: 35,
+                id: 36,
                 transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
+    },
+    {
+        id: 36,
+        title: "à poil",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 37,
+                transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
+    },
+    {
+        id: 37,
+        title: "à poil",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 38,
+                transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
+    },
+    {
+        id: 38,
+        title: "à poil",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 39,
+                transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
+    },
+    {
+        id: 39,
+        title: "à poil",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 40,
+                transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
+    },
+    {
+        id: 40,
+        title: "On cède",
+        context: "... Bon d'accord. On cède, t'as gagné. Mais sache que ça n'aura pas d'influence sur ta partie",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 33,
+                transition: "OUUI, j'ai gagné ! MOUHAHAHA je suis tout puissant, à moi le nudisme !",
                 resolution: "",
                 influences: {
                     health: 0,
