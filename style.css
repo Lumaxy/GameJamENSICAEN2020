@@ -5,17 +5,20 @@ html {
 body{
     height: 100%;
     margin: 0;
+    background-color: #263740;
 }
 
 .but {
-    background-color: rgb(73, 129, 185);
+    background-color: #4d9bc2;
     color: white;
     margin: 3px;
     padding: 3px;
     border-radius: 3px;
 }
 .but:hover {
-    background-color: rgb(94, 140, 185);
+    background-color: #80d4ff;
+    color: black;
+
     cursor: pointer;
 }
 .ligne{
@@ -29,6 +32,7 @@ body{
 
 #sceneImg{
     max-height: 50vh;
+    border-radius: 5px;
 }
 #gameContainer{
     height: 100%;
@@ -38,9 +42,12 @@ body{
 #sceneCard{
     margin-left: 10%;
     margin-right: 10%;
+    border: black solid 2px;
+    border-radius: 5px;
     flex-grow: 5;
     min-width: 70%;
     max-width: 100%;
+    background-color: #607d8b;
 }
 
 .bbb{

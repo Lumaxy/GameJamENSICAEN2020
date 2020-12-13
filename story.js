@@ -14,7 +14,7 @@ let stories =
         title: "Situation initiale",
         context: "Je me retrouve dans une pièce dont le plafond est blanc. Comment suis-je arrivé là ?",
         hour: "3h48",
-        img: "",
+        img: "resources/imgs/cloudy.jpg",
         choices: [
             {
                 id: 1,
@@ -312,13 +312,13 @@ let stories =
     {
         id: 7,
         title: "Choix du premier bar",
-        context: "L'avantage du bar où nous étions",
+        context: "L'avantage de ce bar",
         hour: "23h37",
         img: "",
         choices: [
             {
                 id: 8,
-                transition: "C'est que la musique plait à tout le monde",
+                transition: "est que la musique plait à tout le monde",
                 resolution: "Vous avez choisi un bar avec de la bonne musique",
                 influences: {
                     health: 0,
@@ -331,7 +331,7 @@ let stories =
             },
             {
                 id: 9,
-                transition: "Qu'il était plus calme, on s'entendait parler",
+                transition: "est qu'il était calme, on s'entendait parler",
                 resolution: "Vous avez choisi un bar un peu calme, histoire de discuter",
                 influences: {
                     health: 0,
@@ -347,7 +347,7 @@ let stories =
     {
         id: 8,
         title: "Choix du premier bar car / plait à tout le monde",
-        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais tout le monde n'aime pas la musique qu'ils mettent. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
+        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais tout le monde n'aime pas la musique qu'ils mettent. On est finalement allé à celui sur le quai mais on nous a demandé de finir notre bouteille \"Session 4\" ",
         hour: "23h22",
         img: "",
         choices: [
@@ -382,7 +382,7 @@ let stories =
     {
         id: 9,
         title: "Choix du premier bar car / plus calme",
-        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais il avait beaucoup de monde. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
+        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais il y avait beaucoup de monde. On est finalement allé à celui sur le quai mais on nous a demandé de finir notre bouteille \"Session 4\" ",
         hour: "23h22",
         img: "",
         choices: [
@@ -1237,7 +1237,7 @@ let stories =
             {
                 id: 32,
                 transition: "Fini mes devoirs",
-                resolution: "Vous avez fini vos devoir durant la pause du matin",
+                resolution: "Vous avez fini vos devoirs durant la pause du matin",
                 influences: {
                     health: 0,
                     love: 0,
