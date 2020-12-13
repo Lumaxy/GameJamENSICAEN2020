@@ -132,8 +132,8 @@
         $("#intro").empty()
         $("#intro").text(introductionText.introduction)
         $("#start").text(introductionText.buttonText)
-        // console.log(document.cookie.split(";"));
-        let nAch = document.cookie == "" ? 0 : document.cookie.split(";").length
+        // console.log(document.cookie.split("; "));
+        let nAch = document.cookie == "" ? 0 : document.cookie.split("; ").length
         $("#achievements").text(`${nAch} / ${nAchievements} succès débloqués.`)
         $("#start").click(function(){
             let a = new Audio();
@@ -264,7 +264,6 @@
 
             break
         }
-
     }
 
     function revealEnd(){
@@ -320,9 +319,10 @@
     }
 
     function achieve(achievementName){
-        achievements = document.cookie.split(";")
-        if (!achievements.includes(achievementName + "=true")){
-            document.cookie = achievementName + "=true"
+        let name = achievementName + "=true"
+        achievements = document.cookie.split("; ")
+        if (!achievements.includes(name)){
+            document.cookie = name
             M.toast({html: `Succès : ${achievementName} !`, displayLength: 8000})
         }
     }
