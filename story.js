@@ -14,7 +14,7 @@ let stories =
         title: "Situation initiale",
         context: "Je me retrouve dans une pièce dont le plafond est blanc. Comment suis-je arrivé là ?",
         hour: "3h48",
-        img: "resources/imgs/cloudy.jpg",
+        img: "",
         choices: [
             {
                 id: 1,
@@ -772,7 +772,7 @@ let stories =
                 resolution: "Vous n'êtes pas venu au before avec votre date, qui viendra plus tard dans la soirée",
                 influences: {
                     health: 0,
-                    love: 0,
+                    love: -1,
                     friends: 0,
                     studies: 0,
                     money: 0,
@@ -807,7 +807,7 @@ let stories =
                 resolution: "Vous n'êtes pas venu au before avec votre date, qui viendra plus tard dans la soirée",
                 influences: {
                     health: 0,
-                    love: 0,
+                    love: -1,
                     friends: 0,
                     studies: 0,
                     money: 0,

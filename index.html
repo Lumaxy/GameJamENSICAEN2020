@@ -9,9 +9,13 @@
 </head>
 <body>
     <div id="gameContainer" class="valign-wrapper">
-        <div id="startContainer" class="center bbb">
-            <p class="bbb">Bonjour et bienvenue</p>
-            <div id="start" class="but">Commencer</div>
+        <div id="startContainer">
+            <img src="resources/imgs/logoed.png" width="15%" style="margin-left: 42.5%" alt="">
+            <p class="center">Thème : inversion</p>
+            <br>
+            <h3 class="center">Memento</h3>
+            <p id="intro"></p>
+            <div id="start" class="but center"></div>
         </div>
         <div class="row"><div class="col s12 m12">
 
@@ -41,9 +45,18 @@
         </div>
     </div>
 
-    <div id="recap">
+    <div id="recap" class="">
+        <h3></h3>
+        <div id="listSumup" class="center">
+            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+            <p>fskjfhsihgjoidrjgoi, pendant vous ne savez pas où vous êtes. Vous essayez de vous remévous venez de passer une super soirée. Cemorer la journée pour en déduire où vous êtes arrivé.</p>
+            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+            <p>Vous êtes étudiantr une super soirée. Cependant vous ne sav  , vous venez de passeez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+        </div>
 
-        <div class="but" onclick="location.reload();">
+        <div id="againBut" class="but center" onclick="location.reload();">
             Recommencer une partie !
         </div>
     </div>
@@ -95,14 +108,18 @@
     let currentScene = null
     // $("#startContainer").hide()
     $("#sceneCard").hide()
-    // $("#gameContainer").remove()
+    $("#gameContainer").remove()
     $("#timeline").hide()
-    $("#recap").hide()
+    // $("#recap").hide()
 
     // $("#start").remove()
     // loadInitialScene()
 
     $(document).ready(function() {
+        $("#intro").empty()
+        $("#intro").text(introductionText.introduction)
+        $("#start").text(introductionText.buttonText)
+
         $("#start").click(function(){
             let a = new Audio();
             a.src = "resources/oneUp.wav"
@@ -220,18 +237,16 @@
 
     }
 
-
     function revealEnd(){
-        console.log("voici la fin");
         $("#timeline").fadeOut(()=>{
             loadEndScene()
             $("#recap").fadeIn()
         })
-
     }
+
     function loadEndScene(){
-        $("#recap").empty()
-        
+        // $("#listSumup").append("<p> .... Vous êtes ici</p>")
+
     }
 
     </script>
