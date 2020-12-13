@@ -64,7 +64,6 @@ body{
     position: relative;
     margin: 0 auto;
     width: 90%;
-
 }
 
 .timeline ul li {
@@ -121,7 +120,7 @@ body{
 
 .timeline ul li .content h3 {
     padding: 10px 20px;
-    background-color: #708fd7;
+    background-color: #2b95c9;
     margin-bottom: 0;
     text-align: center;
     border-top-left-radius: 10px;
@@ -130,7 +129,9 @@ body{
 
 .timeline ul li .content p {
     padding: 10px 20px;
-    background-color: #e1d9ec;
+    background-color: #a6c7d9;
+
+    /* background-color: #e1d9ec; */
     margin-top: 0;
     text-align: center;
     border-bottom-left-radius: 10px;
@@ -147,5 +148,5 @@ body{
     height: 100%;
     width: 3px;
     left: 50%;
-    background-color: #333333;
+    background-color: #ffffff;
 }
