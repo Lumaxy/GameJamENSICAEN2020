@@ -28,14 +28,14 @@ let stories_ends =
                 resolution: "Vous avez invité votre date à la soirée pour à peine le calculer. Pas sûr que vous ne vous reparliez."
             },{
                 minValue: 3,
-                maxValue: 8,
+                maxValue: 5,
                 resolution: "Votre date a passé une bonne soirée, mais pas forcément grâce à vous. Vous devrez peut-être rattraper la situation."
             },{
-                minValue: 9,
-                maxValue: 14,
+                minValue: 6,
+                maxValue: 11,
                 resolution: "Vous et votre date avez passé une très bonne soirée, vous vous reverrez sûrement."
             },{
-                minValue: 15,
+                minValue: 12,
                 resolution: "La soirée s'est très bien terminée entre vous et votre date, vous avez hâte de savoir où cela va vous mener."
             }
         ],

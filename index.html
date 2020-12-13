@@ -132,7 +132,7 @@
         $("#intro").empty()
         $("#intro").text(introductionText.introduction)
         $("#start").text(introductionText.buttonText)
-        console.log(document.cookie.split(";"));
+        // console.log(document.cookie.split(";"));
         let nAch = document.cookie == "" ? 0 : document.cookie.split(";").length
         $("#achievements").text(`${nAch} / ${nAchievements} succès débloqués.`)
         $("#start").click(function(){
@@ -188,7 +188,7 @@
                         achieve("Cancre de l'ENSICAEN")
                     }else if (influences.health <= -15){
                         achieve("Toujours vivant, toujours debout")
-                    }else if(influences.love >= 15){
+                    }else if(influences.love >= 13){
                         achieve("Coeur sur toi")
                     }else if(influences.friends >= 18){
                         achieve("Meilleur ami pour la vie")
@@ -247,6 +247,8 @@
             if (index == 1) nSMS++
             break
             case 30:
+            // console.log(index);
+
             switch (index){
                 case 0: //Date
                 influences.love += (nSMS * 2)
@@ -258,6 +260,8 @@
                 influences.friends += (nSMS * 2)
                 break
             }
+            // console.log(influences.love);
+
             break
         }
 
@@ -270,7 +274,7 @@
             if (influences.health <= -15){
                 $("#sceneEndImg").attr("src", "resources/imgs/hospital.webp")
                 $("#finalContext").text("Vous êtes à l'hôpital")
-            }else if (influences.love >= 15){
+            }else if (influences.love >= 13){
                 $("#sceneEndImg").attr("src", "resources/imgs/love_gif.gif")
                 $("#finalContext").text("Vous êtes chez votre date")
             }else if (influences.friends >= 18){
