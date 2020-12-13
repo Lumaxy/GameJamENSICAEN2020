@@ -78,8 +78,6 @@
     <script src="story_ends.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-    // $("#startContainer").hide()
-    // $("#gameContainer").remove()
     $("#sceneCard").hide()
     $("#timeline").hide()
 
@@ -87,8 +85,6 @@
     $("#finalCard").hide()
     $("#gameContainerEnd").hide()
 
-    // $("#start").remove()
-    // loadInitialScene()
 
 
     let events = new Array()
@@ -102,7 +98,6 @@
         reputation: 0
     }
     let tookTicket = true
-
 
     class ChoiceTemplate {
 
@@ -141,7 +136,7 @@
 
         $("#start").click(function(){
             let a = new Audio();
-            a.src = "resources/oneUp.wav"
+            a.src = "resources/Harpe.wav"
             a.play()
             $("#startContainer").fadeOut(function(){
                 $("#startContainer").remove()
@@ -268,7 +263,7 @@
                 $("#sceneEndImg").attr("src", "resources/imgs/love_gif.gif")
                 $("#finalContext").text("Vous êtes chez votre date")
             }else if (influences.friends >= 18){
-                $("#sceneEndImg").attr("src", "resources/imgs/friends.jpg")
+                $("#sceneEndImg").attr("src", "resources/imgs/friends_cropped.jpg")
                 $("#finalContext").text("Vous êtes chez votre pote")
             }else {
                 $("#sceneEndImg").attr("src", "resources/imgs/home.jpg")
