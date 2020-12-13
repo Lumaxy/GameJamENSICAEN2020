@@ -39,7 +39,7 @@ let stories_ends =
                 resolution: "La soirée c'est très bien terminée entre vous et votre date, vous hâte de savoir où cela va vous mener."
             }
         ],
-        
+
     },
     {
         influence: "friends",
@@ -60,7 +60,7 @@ let stories_ends =
                 resolution: "Vous et vos potes avez passé une soirée comme on en fait rarement. Beaucoup de choses se sont passé et certaines anecdotes resteront longtemps. "
             }
         ],
-        
+
     },
     {
         influence: "studies",
@@ -77,7 +77,7 @@ let stories_ends =
                 resolution: "Versatile serait un euphémisme pour vous décrire. Malgré la soirée vous avez révisé vos examens à fond et vous devriez majorer haut la main."
             }
         ],
-        
+
     },
     {
         influence: "money",
@@ -98,7 +98,7 @@ let stories_ends =
                 resolution: "Bravo, vous avez su vous débrouiller pour finir la journée dans le positif. Peu de gens en sont capables et beaucoup aurez besoin de prendre exemple sur vous."
             }
         ],
-        
+
     },
     {
         influence: "reputation",
@@ -108,5 +108,5 @@ let stories_ends =
                 resolution: "Porter un sweatshirt \"ENSI CAEN\" le jour où vous vous battez dans le tram n'était pas votre meilleur idée. On vous a filmé et la vidéo est devenue viral, le conseil d'admnistration n'a pas du tout apprécié."
             }
         ],
-        
+
     }]

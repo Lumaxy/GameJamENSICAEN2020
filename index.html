@@ -11,10 +11,10 @@
     <div id="gameContainer" class="valign-wrapper">
         <div id="startContainer">
             <img src="resources/imgs/logoed.png" width="15%" style="margin-left: 42.5%" alt="">
-            <p class="center">Thème : inversion</p>
+            <p class="center"><b>Thème : inversion</b></p>
             <br>
             <h3 class="center">Memento</h3>
-            <p id="intro"></p>
+            <p id="intro" class="center"></p>
             <div id="start" class="but center"></div>
         </div>
         <div class="row"><div class="col s12 m12">
@@ -38,20 +38,20 @@
 
     <div id="gameContainerEnd" class="valign-wrapper">
         <div id="finalCard" class="card sceneCard">
-            <div class="center"><img id="sceneImg" class="responsive-img" src="resources/imgs/love.jpg" alt=""></div>
+            <div class="center"><img id="sceneEndImg" class="responsive-img" src="" alt=""></div>
             <div class="card-content white-text center">
                 <span class="card-title"></span>
-                <p id="finalContext">Vous vous rendormez dans les bras de votre date</p>
+                <p id="finalContext"></p>
             </div>
             <div class="card-action">
                 <div class="ligne">
-                    <div class="but center" onclick="revealDetails()">Détail de la partie</div>
+                    <div class="but center" onclick="revealDetails()">Détails de la partie</div>
                 </div>
             </div>
         </div>
 
         <div id="recap" class="">
-            <h3 class="center white-text">Détail de votre soirée</h3>
+            <h3 class="center white-text">Détails de votre soirée</h3>
             <div id="listSumup" class="center">
                 <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
                 <p>fskjfhsihgjoidrjgoi, pendant vous ne savez pas où vous êtes. Vous essayez de vous remévous venez de passer une super soirée. Cemorer la journée pour en déduire où vous êtes arrivé.</p>
@@ -84,12 +84,14 @@
     <script src="story.js" charset="utf-8"></script>
 
     <script type="text/javascript">
-    // $("#startContainer").hide()
-    // $("#gameContainer").remove()
+    $("#startContainer").hide()
+    $("#gameContainer").remove()
     $("#sceneCard").hide()
     $("#timeline").hide()
-    $("#finalCard").hide()
-    $("#gameContainerEnd").hide()
+
+    $("#recap").hide()
+    // $("#finalCard").hide()
+    // $("#gameContainerEnd").hide()
 
     // $("#start").remove()
     // loadInitialScene()
@@ -106,6 +108,7 @@
         reputation: 0
     }
     let tookTicket = true
+    revealEnd()
 
     class ChoiceTemplate {
 
@@ -263,6 +266,20 @@
         $("#timeline").fadeOut(()=>{
             $("#gameContainerEnd").show()
             $("#recap").hide()
+
+            if (influences.health <= -15){
+                $("#sceneEndImg").attr("src", "resources/imgs/hospital.webp")
+                $("#finalContext").text("Vous êtes à l'hôpital")
+            }else if (influences.love >= 15){
+                $("#sceneEndImg").attr("src", "resources/imgs/love.jpg")
+                $("#finalContext").text("Vous êtes chez votre date")
+            }else if (influences.friends >= 18){
+                $("#sceneEndImg").attr("src", "resources/imgs/friends.jpg")
+                $("#finalContext").text("Vous êtes chez votre pote")
+            }else {
+                $("#sceneEndImg").attr("src", "resources/imgs/home.jpg")
+                $("#finalContext").text("Vous êtes chez vous")
+            }
 
             $("#finalCard").fadeIn()
         })
