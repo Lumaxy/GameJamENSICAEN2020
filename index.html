@@ -126,7 +126,8 @@
         updateInfluences(id, index)
 
         let resolution = currentScene.choices[index].resolution
-        events.push([currentScene, resolution])
+        if(resolution != "")
+            events.push([currentScene, resolution])
         currentScene = stories.filter(scene => scene.id == id)[0];
         if (currentScene.choices.length == 0){
             //Final Scene

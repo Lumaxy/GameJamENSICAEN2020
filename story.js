@@ -1311,7 +1311,7 @@ let stories =
             {
                 id: 35,
                 transition: "du tout",
-                resolution: "...",
+                resolution: "",
                 influences: {
                     health: 0,
                     love: 0,
@@ -1358,14 +1358,14 @@ let stories =
     {
         id: 35,
         title: "à poil",
-        context: "DEV : Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
-        hour: "07h31",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
         img: "",
         choices: [
             {
                 id: 32,
                 transition: "Oui, d'accord, désolé",
-                resolution: "Test pbm",
+                resolution: "",
                 influences: {
                     health: 0,
                     love: 0,
@@ -1378,33 +1378,7 @@ let stories =
             {
                 id: 35,
                 transition: "Jamais !",
-                resolution: "Test pbm",
-                influences: {
-                    health: 0,
-                    love: 0,
-                    friends: 0,
-                    studies: 0,
-                    money: 0,
-                    reputation: 0
-                }
-            },
-            {
-                id: 33,
-                transition: "Avec ces affaires stylées mais peu confortables",
-                resolution: "Vous avez enfilé vos plus beaux vêtements pour la journée",
-                influences: {
-                    health: 0,
-                    love: 1,
-                    friends: 0,
-                    studies: 0,
-                    money: 0,
-                    reputation: 0
-                }
-            },
-            {
-                id: 35,
-                transition: "du tout",
-                resolution: "...",
+                resolution: "",
                 influences: {
                     health: 0,
                     love: 0,
