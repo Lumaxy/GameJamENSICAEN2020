@@ -1,4 +1,4 @@
-let introductionText =
+let introductionText = 
     {
         title: "Where the story <strike>begin</strike> end",
         project: "Gamesicaen - Team Ctrl+C Ctrl+V = Jeu",
@@ -331,7 +331,7 @@ let stories =
             },
             {
                 id: 9,
-                transition: "Qu'il était plus calme, on s'entendait parler",
+                transition: "C'est qu'il était plus calme, on s'entendait parler",
                 resolution: "Vous avez choisi un bar un peu calme, histoire de discuter",
                 influences: {
                     health: 0,
@@ -382,7 +382,7 @@ let stories =
     {
         id: 9,
         title: "Choix du premier bar car / plus calme",
-        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais il avait beaucoup de monde. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
+        context: "On était enfin descendu du tram, les contrôleurs ont vraiment pris leur temps. Je voulais d'abord aller au pub de la place mais il y avait beaucoup de monde. On est finalement allé à celui sur le quai mais on nous a demandé de finir la bouteille de \"Session 4\" ",
         hour: "23h22",
         img: "",
         choices: [
@@ -859,7 +859,7 @@ let stories =
         img: "",
         choices: [
             {
-                id: 30,
+                id: 31,
                 transition: "de mon travail à temps partiel",
                 resolution: "Vous avez travaillé tout l'après-midi",
                 influences: {
@@ -1307,6 +1307,19 @@ let stories =
                     money: 0,
                     reputation: 0
                 }
+            },
+            {
+                id: 35,
+                transition: "du tout",
+                resolution: "...",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -1341,6 +1354,67 @@ let stories =
                 reputation: 0
             }
         }],
+    },
+    {
+        id: 35,
+        title: "à poil",
+        context: "DEV : Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "07h31",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "Test pbm",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 35,
+                transition: "Jamais !",
+                resolution: "Test pbm",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 33,
+                transition: "Avec ces affaires stylées mais peu confortables",
+                resolution: "Vous avez enfilé vos plus beaux vêtements pour la journée",
+                influences: {
+                    health: 0,
+                    love: 1,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 35,
+                transition: "du tout",
+                resolution: "...",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
     },{
         id: 34,
         title: "reveil",
