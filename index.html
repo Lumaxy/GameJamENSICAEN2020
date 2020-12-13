@@ -16,6 +16,7 @@
             <h3 class="center">Memento</h3>
             <p id="intro" class="center"></p>
             <div id="start" class="but center"></div>
+            <div id="achievements" class="center"></div>
         </div>
         <div class="row"><div class="col s12 m12">
 
@@ -96,6 +97,7 @@
         reputation: 0
     }
     let tookTicket = true
+    let nAchievements = 1
 
     class ChoiceTemplate {
 
@@ -131,7 +133,8 @@
         $("#intro").empty()
         $("#intro").text(introductionText.introduction)
         $("#start").text(introductionText.buttonText)
-
+        let nAch = document.cookie == "" ? 0 : document.cookie.split(";").length
+        $("#achievements").text(`${nAch} / ${nAchievements} succès débloqué.`)
         $("#start").click(function(){
             let a = new Audio();
             a.src = "resources/Harpe.wav"
@@ -174,7 +177,7 @@
             //Final Scene
 
             for(let prop in influences) {
-                console.log(prop + " = " + influences[prop]);
+                // console.log(prop + " = " + influences[prop]);
             }
 
             $("#sceneCard").fadeOut(function(){
@@ -308,7 +311,7 @@
         achievements = document.cookie.split(";")
         if (!achievements.includes(achievementName + "=true")){
             document.cookie = achievements.join(";") + achievementName + "=true;"
-            M.toast({html: `Succès : ${achievementName}!`})
+            M.toast({html: `Succès : ${achievementName} !`})
         }
     }
 
