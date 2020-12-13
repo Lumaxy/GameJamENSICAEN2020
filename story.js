@@ -1,4 +1,4 @@
-let introductionText = 
+let introductionText =
     {
         title: "Where the story <strike>begin</strike> end",
         project: "Gamesicaen - Team Ctrl+C Ctrl+V = Jeu",
@@ -124,7 +124,7 @@ let stories =
         ],
     },
     {
-        id: -3,
+        id: 3,
         title: "Premier bar",
         context: "Mais qu'est ce que j'ai fait dans le bar d'avant ?",
         hour: "1h31",
