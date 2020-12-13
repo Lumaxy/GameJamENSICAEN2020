@@ -85,8 +85,6 @@
     $("#finalCard").hide()
     $("#gameContainerEnd").hide()
 
-
-
     let events = new Array()
     let nSMS = 0
     let influences = {
@@ -182,7 +180,9 @@
             $("#sceneCard").fadeOut(function(){
                 loadTimeLine()
                 $("#gameContainer").hide()
-                $("#timeline").fadeIn()
+                $("#timeline").fadeIn(() => {
+                    achieve("finir une partie")
+                })
             })
         }else{
             $("#sceneCard").fadeOut(function(){
@@ -302,6 +302,14 @@
             loadEndScene()
             $("#recap").fadeIn()
         })
+    }
+
+    function achieve(achievementName){
+        achievements = document.cookie.split(";")
+        if (!achievements.includes(achievementName + "=true")){
+            document.cookie = achievements.join(";") + achievementName + "=true;"
+            M.toast({html: `Succès : ${achievementName}!`})
+        }
     }
 
     </script>
