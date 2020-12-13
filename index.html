@@ -19,7 +19,7 @@
         </div>
         <div class="row"><div class="col s12 m12">
 
-            <div id="sceneCard" class="card">
+            <div id="sceneCard" class="card sceneCard">
                 <div class="center"><img id="sceneImg" class="responsive-img" src="" alt=""></div>
                 <div class="card-content white-text center">
                     <span id="sceneHour" class="card-title"></span>
@@ -31,8 +31,40 @@
                 </div>
             </div>
 
+
         </div></div>
 
+    </div>
+
+    <div id="gameContainerEnd" class="valign-wrapper">
+        <div id="finalCard" class="card sceneCard">
+            <div class="center"><img id="sceneImg" class="responsive-img" src="resources/imgs/love.jpg" alt=""></div>
+            <div class="card-content white-text center">
+                <span class="card-title"></span>
+                <p id="finalContext">Vous vous rendormez dans les bras de votre date</p>
+            </div>
+            <div class="card-action">
+                <div class="ligne">
+                    <div class="but center" onclick="revealDetails()">Détail de la partie</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="recap" class="">
+            <h3 class="center white-text">Détail de votre soirée</h3>
+            <div id="listSumup" class="center">
+                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+                <p>fskjfhsihgjoidrjgoi, pendant vous ne savez pas où vous êtes. Vous essayez de vous remévous venez de passer une super soirée. Cemorer la journée pour en déduire où vous êtes arrivé.</p>
+                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+                <p>Vous êtes étudiantr une super soirée. Cependant vous ne sav  , vous venez de passeez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+                <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
+            </div>
+
+            <div id="againBut" class="but center" onclick="location.reload();">
+                Recommencer une partie !
+            </div>
+        </div>
     </div>
 
     <div id="timeline" class="timelineContainer">
@@ -45,27 +77,24 @@
         </div>
     </div>
 
-    <div id="recap" class="">
-        <h3></h3>
-        <div id="listSumup" class="center">
-            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-            <p>fskjfhsihgjoidrjgoi, pendant vous ne savez pas où vous êtes. Vous essayez de vous remévous venez de passer une super soirée. Cemorer la journée pour en déduire où vous êtes arrivé.</p>
-            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-            <p>Vous êtes étudiantr une super soirée. Cependant vous ne sav  , vous venez de passeez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-            <p>Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.</p>
-        </div>
 
-        <div id="againBut" class="but center" onclick="location.reload();">
-            Recommencer une partie !
-        </div>
-    </div>
 
     <script src="jquery.js" charset="utf-8"></script>
     <script src="materialize.min.js" charset="utf-8"></script>
     <script src="story.js" charset="utf-8"></script>
 
     <script type="text/javascript">
+    // $("#startContainer").hide()
+    // $("#gameContainer").remove()
+    $("#sceneCard").hide()
+    $("#timeline").hide()
+    $("#finalCard").hide()
+    $("#gameContainerEnd").hide()
+
+    // $("#start").remove()
+    // loadInitialScene()
+
+
     let events = new Array()
     let nSMS = 0
     let influences = {
@@ -106,14 +135,7 @@
         }
     }
     let currentScene = null
-    // $("#startContainer").hide()
-    $("#sceneCard").hide()
-    $("#gameContainer").remove()
-    $("#timeline").hide()
-    // $("#recap").hide()
 
-    // $("#start").remove()
-    // loadInitialScene()
 
     $(document).ready(function() {
         $("#intro").empty()
@@ -239,14 +261,22 @@
 
     function revealEnd(){
         $("#timeline").fadeOut(()=>{
-            loadEndScene()
-            $("#recap").fadeIn()
+            $("#gameContainerEnd").show()
+            $("#recap").hide()
+
+            $("#finalCard").fadeIn()
         })
     }
 
     function loadEndScene(){
         // $("#listSumup").append("<p> .... Vous êtes ici</p>")
 
+    }
+
+    function revealDetails(){
+        $("#finalCard").fadeOut(()=>{
+            $("#recap").fadeIn()
+        })
     }
 
     </script>

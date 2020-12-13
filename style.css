@@ -41,7 +41,8 @@ body{
     max-width: 30%;
     margin-left: 35%;
 }
-
+#finalCard{
+}
 #sceneImg{
     max-height: 50vh;
     border-radius: 5px;
@@ -50,7 +51,11 @@ body{
     height: 100%;
     margin: 0;
 }
-#sceneCard{
+#gameContainerEnd{
+    height: 100%;
+    margin: 0;
+}
+.sceneCard{
     margin-left: 10%;
     margin-right: 10%;
     border: black solid 2px;
@@ -62,16 +67,16 @@ body{
 }
 
 #listSumup {
-    width: 70%;
-    height: 70%;
     border-radius: 5px;
     border: black solid 2px;
-    margin-left: 15%;
-    margin-top: 5%;
     background-color: #607d8b;
     padding: 20px;
+    color: white;
 }
-
+#recap{
+    margin-left: 15%;
+    width: 70%;
+}
 #againBut{
     width:30%;
     margin-left: 35%;
