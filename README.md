@@ -5,6 +5,9 @@ Notre équipe, les "Ctrl+C Ctrl+V = Jeu" se compose de :
 - Maxenxe MORIN (https://github.com/Lumaxy)
 - Manfred BURON (https://github.com/ManfredBuron)
 
+Vous pouvez jouer au jeu à cette adresse :
+https://lumaxy.github.io/GameJamENSICAEN2020/
+
 
 # Le jeu
 Notre jeu vous fait incarner un étudiant de l'ENSI Caen. C'est la fin de la soirée et vous vous ne souvenez pas trop d'où vous êtes. Vous essayez alors de le déterminer à partir de vos souvenirs de la journée.
@@ -24,6 +27,8 @@ Our team, the "Ctrl+C Ctrl+V = Jeu" is composed of:
 - Maxenxe MORIN (https://github.com/Lumaxy)
 - Manfred BURON (https://github.com/ManfredBuron)
 
+You can play the game here :
+https://lumaxy.github.io/GameJamENSICAEN2020/
 
 # The game
 Our game makes you live the day of a student from the ENSI Caen school. It's the end of the night, and you don't remember where you are exactly. You try to determine where you are by remembering your day.
