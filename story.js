@@ -417,7 +417,7 @@ let stories =
     {
         id: 10,
         title: "Tram de l'ambiance",
-        context: "Je me souviens du tram à l'arrêt, mais j'ai du mal à me rappeler pourquoi",
+        context: "Je me souviens du tram de l'ambiance à l'arrêt, mais j'ai du mal à me rappeler pourquoi",
         hour: "23h04",
         img: "",
         choices: [
@@ -449,8 +449,8 @@ let stories =
             },
             {
                 id: 11,
-                transition: "\"ON EST EN PHARMA, ON EST EN PHARMA\"",
-                resolution: "\"ON EST EN PHARMA, ON EST EN PHARMA\"",
+                transition: "\"PAQUITO PAQUITO PAQUITOOOO, PAQUITO PAQUITOOO\"",
+                resolution: "\"PAQUITO PAQUITO PAQUITOOOO, PAQUITO PAQUITOOO\"",
                 influences: {
                     health: 0,
                     love: 0,
