@@ -1,9 +1,9 @@
-let introductionText =
+let introductionText = 
     {
         title: "Where the story <strike>begin</strike> end",
         project: "Gamesicaen - Team Ctrl+C Ctrl+V = Jeu",
         theme: "Inversion",
-        introduction: "Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour savoir où vous êtes arrivé.",
+        introduction: "Vous êtes étudiant, vous venez de passer une super soirée. Cependant vous ne savez pas où vous êtes. Vous essayez de vous remémorer la journée pour en déduire où vous êtes arrivé.",
         buttonText: "Remonter le fil de la journée"
     }
 
@@ -25,7 +25,7 @@ let stories =
                     love: 0,
                     friends: 0,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             },{
@@ -33,7 +33,7 @@ let stories =
                 transition: "A pied",
                 resolution: "Vous avez marché pour rentrer",
                 influences: {
-                    health: 0,
+                    health: 1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -57,7 +57,7 @@ let stories =
                 influences: {
                     health: -2,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: -1,
                     reputation: 0
@@ -67,8 +67,8 @@ let stories =
                 transition: "D'embrasser mon date",
                 resolution: "Vous avez embrassé votre date juste avant que le bar ne ferme",
                 influences: {
-                    health: -1,
-                    love: +2,
+                    health: 0,
+                    love: 4,
                     friends: 0,
                     studies: 0,
                     money: 0,
@@ -79,7 +79,7 @@ let stories =
                 transition: "D'aller au toilette",
                 resolution: "Vous avez été au toilette juste avant que le bar ne ferme",
                 influences: {
-                    health: +1,
+                    health: 1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -98,14 +98,14 @@ let stories =
         choices: [
             {
                 id: 3,
-                transition: "Celui-ci était moins cher que le précédent",
+                transition: "Le précédent était trop cher",
                 resolution: "Vous avez décidé de changer de bar pour un bar moins cher",
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: -2,
+                    friends: 0,
                     studies: 0,
-                    money: +2,
+                    money: -2,
                     reputation: 0
                 }
             },{
@@ -115,9 +115,9 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: +2,
+                    friends: -1,
                     studies: 0,
-                    money: -2,
+                    money: 0,
                     reputation: 0
                 }
             }
@@ -137,9 +137,9 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: +2,
+                    friends: 2,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             },{
@@ -148,8 +148,8 @@ let stories =
                 resolution: "Vous avez dragué votre date",
                 influences: {
                     health: 0,
-                    love: +2,
-                    friends: -2,
+                    love: 2,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -160,10 +160,10 @@ let stories =
                 resolution: "Vous avez payé la tournée de shots",
                 influences: {
                     health: -2,
-                    love: 0,
-                    friends: +4,
+                    love: 1,
+                    friends: 4,
                     studies: 0,
-                    money: -4,
+                    money: -3,
                     reputation: 0
                 }
             }
@@ -181,11 +181,11 @@ let stories =
                 transition: "J'avais déjà joué aux fléchettes",
                 resolution: "Vous avez fait une partie de fléchettes",
                 influences: {
-                    health: -2,
+                    health: 0,
                     love: 0,
-                    friends: +2,
+                    friends: 3,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             },
@@ -195,8 +195,8 @@ let stories =
                 resolution: "Vous avez dragué votre date",
                 influences: {
                     health: 0,
-                    love: +2,
-                    friends: -2,
+                    love: 2,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -209,9 +209,9 @@ let stories =
                 influences: {
                     health: -4,
                     love: 0,
-                    friends: +4,
+                    friends: 2,
                     studies: 0,
-                    money: -2,
+                    money: -1,
                     reputation: 0
                 }
             }
@@ -231,9 +231,9 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: +2,
+                    friends: 2,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             },{
@@ -242,7 +242,7 @@ let stories =
                 resolution: "Vous avez discuté avec votre date",
                 influences: {
                     health: 0,
-                    love: +1,
+                    love: 3,
                     friends: -1,
                     studies: 0,
                     money: 0,
@@ -253,11 +253,11 @@ let stories =
                 transition: "Je venais de boire un mètre de shots",
                 resolution: "Vous avez bu un mètre de shots",
                 influences: {
-                    health: -4,
+                    health: -3,
                     love: 0,
-                    friends: +4,
+                    friends: 2,
                     studies: 0,
-                    money: -2,
+                    money: -1,
                     reputation: 0
                 }
             }
@@ -277,9 +277,9 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             },{
@@ -288,8 +288,8 @@ let stories =
                 resolution: "Vous avez discuté avec votre date",
                 influences: {
                     health: 0,
-                    love: 0,
-                    friends: 0,
+                    love: 2,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -299,11 +299,11 @@ let stories =
                 transition: "C'était déjà mon deuxième mètre dans ce bar",
                 resolution: "Vous avez bu un mètre de shots",
                 influences: {
-                    health: 0,
+                    health: -4,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
-                    money: 0,
+                    money: -1,
                     reputation: 0
                 }
             }
@@ -323,7 +323,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -337,7 +337,7 @@ let stories =
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 0,
+                    studies: 1,
                     money: 0,
                     reputation: 0
                 }
@@ -356,9 +356,9 @@ let stories =
                 transition: "J'ai aidé à la finir",
                 resolution: "Vous avez fini seul \"Session 4\"",
                 influences: {
-                    health: 0,
+                    health: -4,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -371,7 +371,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -391,9 +391,9 @@ let stories =
                 transition: "J'ai aidé à la finir",
                 resolution: "Vous avez fini seul \"Session 4\"",
                 influences: {
-                    health: 0,
+                    health: -4,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -406,7 +406,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -439,12 +439,12 @@ let stories =
                 transition: "On s'est embrouillé avec une autre école",
                 resolution: "Vous vous êtes battu avec un étudiant d'une autre école",
                 influences: {
-                    health: 0,
+                    health: -1,
                     love: 0,
                     friends: 0,
                     studies: 0,
                     money: 0,
-                    reputation: 0
+                    reputation: -2
                 }
             },
             {
@@ -454,7 +454,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 3,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -474,9 +474,9 @@ let stories =
                 transition: "J'ai copieusement bu dans la bouteille \"Session 4\"",
                 resolution: "Vous avez bu \"Session 4\" en attendant le tram",
                 influences: {
-                    health: 0,
+                    health: -2,
                     love: 0,
-                    friends: 0,
+                    friends: 1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -491,17 +491,17 @@ let stories =
                     love: 0,
                     friends: 0,
                     studies: 0,
-                    money: -2,
+                    money: -1,
                     reputation: 0
                 }
             },
             {
                 id: 12,
                 transition: "J'ai dragué mon date",
-                resolution: "Vous avez dragué votre date",
+                resolution: "Vous avez dragué votre date en attendant le tram",
                 influences: {
                     health: 0,
-                    love: 0,
+                    love: 2,
                     friends: 0,
                     studies: 0,
                     money: 0,
@@ -522,7 +522,7 @@ let stories =
                 transition: "n'était pas assez forte",
                 resolution: "Puis vous avez ajouté du soft à \"Session 4\"",
                 influences: {
-                    health: 0,
+                    health: 2,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -535,7 +535,7 @@ let stories =
                 transition: "était parfaitement dosée",
                 resolution: "Vous avez confectionné une \"Session 4\" impéccable",
                 influences: {
-                    health: 0,
+                    health: -1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -548,7 +548,7 @@ let stories =
                 transition: "était trop forte",
                 resolution: "Puis vous avez ajouté de l'alcool à \"Session 4\"",
                 influences: {
-                    health: 0,
+                    health: -1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -583,7 +583,7 @@ let stories =
                 transition: "... genre <u>VRAIMENT</u> plus fort",
                 resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter très peu d'alcool dans la bouteille",
                 influences: {
-                    health: 0,
+                    health: 1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -605,7 +605,7 @@ let stories =
                 transition: "... on mettra du soft aussi",
                 resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter beaucoup d'alcool dans la bouteille",
                 influences: {
-                    health: 0,
+                    health: -1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -618,7 +618,7 @@ let stories =
                 transition: "... on mettra moins d'alcool fort",
                 resolution: "Préparation de \"Session 4\" : Vous avez commencé par ajouter de l'alcool fort dans la bouteille",
                 influences: {
-                    health: 0,
+                    health: -1,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -642,7 +642,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -655,7 +655,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -675,9 +675,9 @@ let stories =
                 transition: "Je me suis fait focus par les autres",
                 resolution: "Vous avez été focus par vos amis durant la première partie de Picolo",
                 influences: {
-                    health: 0,
+                    health: -2,
                     love: 0,
-                    friends: 0,
+                    friends: 1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -690,7 +690,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -706,26 +706,26 @@ let stories =
         img: "",
         choices: [
             {
-                id: 18,
-                transition: "des potes",
-                resolution: "Mais vous avez amené des amis",
-                influences: {
-                    health: 0,
-                    love: 0,
-                    friends: 0,
-                    studies: 0,
-                    money: 0,
-                    reputation: 0
-                }
-            },
-            {
                 id: 19,
                 transition: "l'apéro",
                 resolution: "Mais vous avez apporté l'apéro",
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 1,
+                    studies: 0,
+                    money: -2,
+                    reputation: 0
+                }
+            },
+            {
+                id: 18,
+                transition: "des potes",
+                resolution: "Mais vous avez amené des amis",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -737,7 +737,7 @@ let stories =
                 resolution: "Mais vous êtes venu avec votre date",
                 influences: {
                     health: 0,
-                    love: 0,
+                    love: 2,
                     friends: 0,
                     studies: 0,
                     money: 0,
@@ -760,7 +760,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -795,7 +795,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -830,7 +830,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -843,7 +843,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -867,7 +867,7 @@ let stories =
                     love: 0,
                     friends: 0,
                     studies: 0,
-                    money: 0,
+                    money: 5,
                     reputation: 0
                 }
             },
@@ -913,7 +913,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -926,7 +926,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -983,7 +983,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -996,7 +996,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -1019,7 +1019,7 @@ let stories =
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 0,
+                    studies: 2,
                     money: 0,
                     reputation: 0
                 }
@@ -1054,7 +1054,7 @@ let stories =
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 0,
+                    studies: 2,
                     money: 0,
                     reputation: 0
                 }
@@ -1124,7 +1124,7 @@ let stories =
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 0,
+                    studies: 2,
                     money: 0,
                     reputation: 0
                 }
@@ -1158,7 +1158,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: 2,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -1171,7 +1171,7 @@ let stories =
                 influences: {
                     health: 0,
                     love: 0,
-                    friends: 0,
+                    friends: -1,
                     studies: 0,
                     money: 0,
                     reputation: 0
@@ -1242,7 +1242,7 @@ let stories =
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 0,
+                    studies: 1,
                     money: 0,
                     reputation: 0
                 }
@@ -1252,7 +1252,7 @@ let stories =
                 transition: "Pris un truc à manger",
                 resolution: "Vous avez mangé un encas durant la pause du matin",
                 influences: {
-                    health: 0,
+                    health: 2,
                     love: 0,
                     friends: 0,
                     studies: 0,
@@ -1292,7 +1292,7 @@ let stories =
                     friends: 0,
                     studies: 0,
                     money: 0,
-                    reputation: 0
+                    reputation: -2
                 }
             },
             {
@@ -1301,7 +1301,7 @@ let stories =
                 resolution: "Vous avez enfilé vos plus beaux vêtements pour la journée",
                 influences: {
                     health: 0,
-                    love: 0,
+                    love: 1,
                     friends: 0,
                     studies: 0,
                     money: 0,
@@ -1321,7 +1321,7 @@ let stories =
             transition: "Bien fait de prendre un petit dej consistant",
             resolution: "Vous avez pris un bon petit déjeuner consistant et équilibré après vous être levé",
             influences: {
-                health: 0,
+                health: 2,
                 love: 0,
                 friends: 0,
                 studies: 0,
