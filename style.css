@@ -7,8 +7,20 @@ body{
     margin: 0;
 }
 
-.btn {
-    height:auto !important;
+.but {
+    background-color: rgb(73, 129, 185);
+    color: white;
+    margin: 3px;
+    padding: 3px;
+    border-radius: 3px;
+}
+.but:hover {
+    background-color: rgb(94, 140, 185);
+    cursor: pointer;
+}
+.ligne{
+    display: flex !important;
+    justify-content: space-evenly;
 }
 
 #start{

@@ -117,7 +117,7 @@ let stories =
         ],
     },
     {
-        id: 3,
+        id: -3,
         title: "Premier bar",
         context: "Mais qu'est ce que j'ai fait dans le bar d'avant ?",
         hour: "1h31",

@@ -22,7 +22,7 @@
                     <p id="sceneContext"></p>
                 </div>
                 <div class="card-action">
-                    <div id="sceneChoices" class="row">
+                    <div id="sceneChoices" class="ligne">
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
         }
 
         renderHTML(){
-            return `<div class="btn col s${this.ncol}" onclick="nextScene(${this.id}, ${this.index})" id="${this.id}">${this.transition}</div>`
+            return `<div class="but center" onclick="nextScene(${this.id}, ${this.index})" id="${this.id}">${this.transition.toUpperCase()}</div>`
         }
     }
 
