@@ -166,7 +166,7 @@
     }
 
     function nextScene(id, index){
-        specificCases(id, index)
+        specificCases(currentScene.id, index)
         updateInfluences(id, index)
 
         let resolution = currentScene.choices[index].resolution
@@ -175,10 +175,6 @@
         currentScene = stories.filter(scene => scene.id == id)[0];
         if (currentScene.choices.length == 0){
             //Final Scene
-
-            for(let prop in influences) {
-                // console.log(prop + " = " + influences[prop]);
-            }
 
             $("#sceneCard").fadeOut(function(){
                 loadTimeLine()
@@ -229,26 +225,36 @@
             }
             break
             case 22:
-            if (index == 1) nSMS++
+            if (index == 1) {
+                nSMS++
+            }
             break
             case 24:
-            if (index == 1) nSMS++
+            if (index == 1) {
+                nSMS++
+            }
             break
             case 25:
-            if(index == 1) nSMS++
+            if(index == 1) {
+                nSMS++
+            }
             break
             case 26:
-            if (index == 1) nSMS++
+            if (index == 1) {
+                nSMS++
+            }
             break
             case 28:
-            if (index == 1) nSMS++
+            if (index == 1) {
+                nSMS++
+            }
             break
             case 29:
-            if (index == 1) nSMS++
+            if (index == 1) {
+                nSMS++
+            }
             break
             case 30:
-            // console.log(index);
-
             switch (index){
                 case 0: //Date
                 influences.love += (nSMS * 2)
