@@ -859,7 +859,7 @@ let stories =
         img: "",
         choices: [
             {
-                id: 30,
+                id: 31,
                 transition: "de mon travail à temps partiel",
                 resolution: "Vous avez travaillé tout l'après-midi",
                 influences: {
@@ -1307,6 +1307,19 @@ let stories =
                     money: 0,
                     reputation: 0
                 }
+            },
+            {
+                id: 35,
+                transition: "du tout",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
             }
         ],
     },
@@ -1341,6 +1354,41 @@ let stories =
                 reputation: 0
             }
         }],
+    },
+    {
+        id: 35,
+        title: "à poil",
+        context: "Nan mais ça va pas ! Tu crois que c'est qui qui gère les paradoxes temporels après ? Bon, on revient à la case précédente",
+        hour: "DEVS :",
+        img: "",
+        choices: [
+            {
+                id: 32,
+                transition: "Oui, d'accord, désolé",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            },
+            {
+                id: 35,
+                transition: "Jamais !",
+                resolution: "",
+                influences: {
+                    health: 0,
+                    love: 0,
+                    friends: 0,
+                    studies: 0,
+                    money: 0,
+                    reputation: 0
+                }
+            }
+        ],
     },{
         id: 34,
         title: "reveil",
