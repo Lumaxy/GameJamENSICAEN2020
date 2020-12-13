@@ -44,6 +44,16 @@
 
     <script type="text/javascript">
     let events = new Array()
+    let nSMS = 0
+    let influences = {
+        health: 0,
+        love: 0,
+        friends: 0,
+        studies: 0,
+        money: 0,
+        reputation: 0
+    }
+    let tookTicket = true
 
     class ChoiceTemplate {
 
@@ -112,11 +122,19 @@
     }
 
     function nextScene(id, index){
+        specificCases(id, index)
+        updateInfluences(id, index)
+
         let resolution = currentScene.choices[index].resolution
         events.push([currentScene, resolution])
         currentScene = stories.filter(scene => scene.id == id)[0];
         if (currentScene.choices.length == 0){
             //Final Scene
+
+            for(let prop in influences) {
+                console.log(prop + " = " + influences[prop]);
+            }
+
             $("#sceneCard").fadeOut(function(){
                 loadTimeLine()
                 $("#gameContainer").hide()
@@ -136,6 +154,59 @@
             $("#listOfEvents").append(new TimepointTemplate(i[0], i[1]).renderHTML())
         }
     }
+
+    function updateInfluences(id, index){
+        influences.health     += currentScene.choices[index].influences.health
+        influences.love       += currentScene.choices[index].influences.love
+        influences.friends    += currentScene.choices[index].influences.friends
+        influences.studies    += currentScene.choices[index].influences.studies
+        influences.money      += currentScene.choices[index].influences.money
+        influences.reputation += currentScene.choices[index].influences.reputation
+    }
+
+    function specificCases(id, index){
+        switch(id){
+            case 11:
+            if (index != 1) {
+                tookTicket = false
+                influences.money -= 6
+            }
+            break
+            case 22:
+            if (index == 1) nSMS++
+            break
+            case 24:
+            if (index == 1) nSMS++
+            break
+            case 25:
+            if(index == 1) nSMS++
+            break
+            case 26:
+            if (index == 1) nSMS++
+            break
+            case 28:
+            if (index == 1) nSMS++
+            break
+            case 29:
+            if (index == 1) nSMS++
+            break
+            case 30:
+            switch (index){
+                case 0: //Date
+                influences.love += (nSMS * 2)
+                break
+                case 1: //APL
+                influences.money += (nSMS * 2)
+                break
+                case 2: //Poto Paris
+                influences.friends += (nSMS * 2)
+                break
+            }
+            break
+        }
+
+    }
+
 
     </script>
 </body>

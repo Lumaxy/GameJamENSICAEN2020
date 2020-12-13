@@ -1,4 +1,4 @@
-let introductionText = 
+let introductionText =
     {
         title: "Where the story <strike>begin</strike> end",
         project: "Gamesicaen - Team Ctrl+C Ctrl+V = Jeu",
