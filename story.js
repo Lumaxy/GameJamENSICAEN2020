@@ -110,7 +110,7 @@ let stories =
                 }
             },{
                 id: 3,
-                transition: "Il y avait une meilleur ambiance dans celui-ci",
+                transition: "Le précédent était moins animé",
                 resolution: "Vous avez décidé de changer de bar pour un bar avec plus d'ambiance",
                 influences: {
                     health: 0,
@@ -139,7 +139,7 @@ let stories =
                     love: 0,
                     friends: 2,
                     studies: 0,
-                    money: -1,
+                    money: 0,
                     reputation: 0
                 }
             },{
@@ -185,7 +185,7 @@ let stories =
                     love: 0,
                     friends: 3,
                     studies: 0,
-                    money: -1,
+                    money: 0,
                     reputation: 0
                 }
             },
@@ -233,7 +233,7 @@ let stories =
                     love: 0,
                     friends: 2,
                     studies: 0,
-                    money: -1,
+                    money: 0,
                     reputation: 0
                 }
             },{
@@ -279,7 +279,7 @@ let stories =
                     love: 0,
                     friends: 2,
                     studies: 0,
-                    money: -1,
+                    money: 0,
                     reputation: 0
                 }
             },{
@@ -312,13 +312,13 @@ let stories =
     {
         id: 7,
         title: "Choix du premier bar",
-        context: "L'avantage de ce bar",
+        context: "Ce bar avait l'avantage",
         hour: "23h37",
         img: "",
         choices: [
             {
                 id: 8,
-                transition: "est que la musique plait à tout le monde",
+                transition: "de passer de la musique qui plaisait à tout le monde",
                 resolution: "Vous avez choisi un bar avec de la bonne musique",
                 influences: {
                     health: 0,
@@ -331,13 +331,13 @@ let stories =
             },
             {
                 id: 9,
-                transition: "est qu'il était calme, on s'entendait parler",
-                resolution: "Vous avez choisi un bar un peu calme, histoire de discuter",
+                transition: "d'être calme, on s'entendait parler",
+                resolution: "Vous avez choisi un bar calme, histoire de discuter",
                 influences: {
                     health: 0,
                     love: 0,
                     friends: 0,
-                    studies: 1,
+                    studies: 0,
                     money: 0,
                     reputation: 0
                 }
@@ -417,7 +417,7 @@ let stories =
     {
         id: 10,
         title: "Tram de l'ambiance",
-        context: "Je me souviens du tram de l'ambiance à l'arrêt, mais j'ai du mal à me rappeler pourquoi",
+        context: "Je me souviens du \"Tram de l'Ambiance\" à l'arrêt, mais j'ai du mal à me rappeler pourquoi",
         hour: "23h04",
         img: "",
         choices: [
@@ -465,7 +465,7 @@ let stories =
     {
         id: 11,
         title: "Attente du tram",
-        context: "Mais attends, qu'est-ce que j'ai fait en attendant le tram en sortant du before",
+        context: "Qu'ai-je fait en attendant le tram en sortant du before ?",
         hour: "22h29",
         img: "",
         choices: [
@@ -666,7 +666,7 @@ let stories =
     {
         id: 16,
         title: "Jeu à boire / j'ai subit",
-        context: "Par contre, à la première partie",
+        context: "Par contre, à la première partie de Picolo",
         hour: "21h03",
         img: "",
         choices: [
@@ -701,13 +701,13 @@ let stories =
     {
         id: 17,
         title: "Arrivé before",
-        context: "Lorsque je suis arrivé au before, même en ayant amené",
+        context: "En arrivant au before, j'ai du faire un choix :",
         hour: "20h26",
         img: "",
         choices: [
             {
                 id: 19,
-                transition: "l'apéro",
+                transition: "Amener l'apéro",
                 resolution: "Mais vous avez apporté l'apéro",
                 influences: {
                     health: 0,
@@ -720,7 +720,7 @@ let stories =
             },
             {
                 id: 18,
-                transition: "des potes",
+                transition: "Amener mes potes",
                 resolution: "Mais vous avez amené des amis",
                 influences: {
                     health: 0,
@@ -733,7 +733,7 @@ let stories =
             },
             {
                 id: 20,
-                transition: "mon date",
+                transition: "Amener mon date",
                 resolution: "Mais vous êtes venu avec votre date",
                 influences: {
                     health: 0,
@@ -1112,7 +1112,7 @@ let stories =
     {
         id: 28,
         title: "Avant d'être chez moi / j'étais chez moi",
-        context: "Il y a des priorité dans la vie,",
+        context: "Il y a des priorités dans la vie,",
         hour: "14h22",
         img: "",
         choices: [

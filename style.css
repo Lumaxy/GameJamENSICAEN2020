@@ -26,10 +26,16 @@ body{
     justify-content: space-evenly;
 }
 
-#start{
-    margin-left: 45%;
+#startContainer{
+    margin-left: 42%;
 }
-
+#startContainer p{
+    background-color: #607d8b;
+    margin-bottom: 50%;
+}
+#start{
+    /* margin-left: 45%; */
+}
 #sceneImg{
     max-height: 50vh;
     border-radius: 5px;
